@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fysioterapi med høj faglighed</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+
+    <!-- Header (Går helt ud til kanten) -->
+    <header class="header">
+        <div class="header__top">
+            <div class="header__logo">
+                <!-- Indsæt logo her -->
+                <img src="logo.png" alt="Fysioterapi Logo" class="header__logo-img">
+            </div>
+            <button class="header__burger" aria-label="Åbn menu">
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+            </button>
+        </div>
+        <div class="header__contact">
+            <a href="tel:+4512345678" class="header__phone">Ring til os: 12 34 56 78</a>
+        </div>
+    </header>
+
+    <!-- Main indhold (Har 20px padding i siderne på mobil) -->
+    <main class="main-content">
+        
+        <!-- Hero Sektion -->
+        <section class="hero">
+            <h1 class="hero__title">Fysioterapi med høj faglighed</h1>
+            <div class="hero__highlights">
+                <h3 class="hero__highlight-item">Fokus på din krop og bevægelse</h3>
+                <h3 class="hero__highlight-item">Individuelt tilpasset genoptræning</h3>
+                <h3 class="hero__highlight-item">Erfaring og nyeste viden</h3>
+            </div>
+            <a href="#bestil" class="btn btn--cta">Bestil tid online</a>
+        </section>
+
+        <!-- Profil Sektion med overlappende tekst -->
+        <section class="profile">
+            <img src="fysioterapeut.jpg" alt="Portræt af fysioterapeuten" class="profile__image">
+            <div class="profile__text-box">
+                <p class="profile__text">Mød din behandler. Vi sikrer en tryg og professionel oplevelse fra start til slut.</p>
+            </div>
+        </section>
+
+        <!-- Anmeldelser (Karrusel Placeholder) -->
+        <section class="reviews" id="reviews-carousel">
+            <div class="reviews__track">
+                <!-- Her kan du senere styre indholdet med JS -->
+                <div class="reviews__item">"Fantastisk behandling og stor faglighed!" - Jens</div>
+                <div class="reviews__item">"Jeg er endelig smertefri." - Hanne</div>
+            </div>
+        </section>
+
+        <!-- Store navigationsknapper med baggrundsbillede -->
+        <section class="services-nav">
+            <a href="#behandlinger" class="services-nav__card services-nav__card--treatments">
+                <h2 class="services-nav__title">Behandlinger</h2>
+            </a>
+            <a href="#priser" class="services-nav__card services-nav__card--prices">
+                <h2 class="services-nav__title">Priser</h2>
+            </a>
+        </section>
+
+        <!-- Info bokse -->
+        <section class="info">
+            <div class="info__box">
+                <h3 class="info__box-title">Vores Mission</h3>
+                <p class="info__box-text">Lidt tekst om fysioterapeutens tilgang her.</p>
+            </div>
+            <div class="info__box">
+                <h3 class="info__box-title">Specialer</h3>
+                <p class="info__box-text">Lidt tekst om fysioterapeutens specialer her.</p>
+            </div>
+            <div class="info__box">
+                <h3 class="info__box-title">Faciliteter</h3>
+                <p class="info__box-text">Lidt tekst om klinikken her.</p>
+            </div>
+            <div class="info__box">
+                <h3 class="info__box-title">Praktisk Info</h3>
+                <p class="info__box-text">Lidt tekst om parkering og ankomst her.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Går helt ud til kanten) -->
+    <footer class="footer">
+        <p class="footer__text">© 2026 Fysioterapien</p>
+    </footer>
+
+</body>
+</html>
