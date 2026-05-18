@@ -301,6 +301,66 @@ img {
     border-radius: 10px;
 }
 
+/* =========================================
+   Uddannelses Karrusel (edu-carousel)
+   ========================================= */
+
+.edu-carousel {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.edu-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.edu-carousel__track {
+    display: flex;
+    gap: 20px;
+    padding: 20px 10vw; /* 10vw giver luft i siderne så man ser nabo-kortene */
+}
+
+.edu-carousel__item {
+    flex: 0 0 80vw; /* Hvert kort fylder 80% af skærmbredden */
+    background-color: var(--color-primary);
+    border-radius: 10px; /* Bløde, runde hjørner som på billedet */
+    display: flex;
+    flex-direction: column;
+    min-height: 350px; /* Sikrer at alle kort har samme højde */
+    scroll-snap-align: center;
+    overflow: hidden;
+}
+
+/* De fede overskrifter (Uddannelse: / Udbyder:) */
+.edu-carousel__label {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    margin-bottom: 15px;
+}
+
+/* Selve teksten */
+.edu-carousel__content {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: var(--color-text-main);
+}
+
+/* Sørger for lidt luft mellem top og bund sektionen */
+.edu-carousel__top {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.edu-carousel__bottom {
+    background-color: var(--color-secondary);
+    padding: 30px;
+}
+
 /* Footer */
 .footer {
     background-color: var(--color-text-main);
@@ -378,6 +438,15 @@ img {
     .profile__text-box {
         width: 100%; /* Sørger for at boksen bliver strukket helt ud til kanten af sin kolonne */
         /* margin-top: -40px; (fra din mobile-first kode) sikrer at den stadig overlapper billedet */
+    }
+
+    .edu-carousel__item {
+        flex: 0 0 350px; /* Faste bredder på desktop ser ofte bedre ud */
+    }
+    
+    .edu-carousel__track {
+        padding: 40px 20px; /* Mindre side-padding på desktop */
+        justify-content: flex-start;
     }
 
 }
