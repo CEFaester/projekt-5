@@ -43,7 +43,7 @@ img {
 
 /* Header */
 .header {
-    background-color: var(--color-primary); /* Eksempel farve */
+    background-color: var(--color-bg-light); /* Eksempel farve */
     padding: 15px 20px; /* Padding indeni headeren, selvom den går til kant */
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@ img {
 }
 
 .header__logo-img {
-    max-width: 150px; /* Juster efter dit logo */
+    max-width: 290px; /* Juster efter dit logo */
 }
 
 .header__burger {
@@ -190,7 +190,7 @@ img {
 
 .reviews__item {
     /* flex: 0 0 80vw betyder: Voks ikke, skrump ikke, vær altid præcis 80% af skærmens bredde */
-    flex: 0 0 80vw; 
+    flex: 0 0 70vw; 
     background-color: var(--color-secondary);
     padding: 30px 20px;
     border-radius: 10px;
@@ -201,7 +201,7 @@ img {
 
 .reviews__text {
     font-style: italic;
-    text-align: center;
+    text-align: left;
     color: var(--color-text-main);
 }
 
