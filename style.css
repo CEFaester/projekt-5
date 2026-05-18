@@ -205,7 +205,6 @@ img {
     color: var(--color-text-main);
 }
 
-/* Services Navigationskort (Store knapper) */
 .services-nav {
     display: flex;
     flex-direction: column;
@@ -213,6 +212,7 @@ img {
     margin-bottom: 40px;
 }
 
+/* Opdatering af det eksisterende kort */
 .services-nav__card {
     height: 188px;
     width: 100%;
@@ -221,27 +221,38 @@ img {
     justify-content: center;
     text-decoration: none;
     border-radius: 10px;
-    background-color: var(--color-primary); /* Fallback farve */
-    /* Tilføj baggrundsbilleder herunder senere: */
-    /* background-image: url('billede1.jpg'); */
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    position: relative; /* Vigtigt: Gør at vi kan placere billedet absolut indeni */
+    overflow: hidden; /* Vigtigt: Skjuler det af billedet, der er højere end kortet */
 }
 
-/* Overlay til at gøre teksten læsbar ovenpå billedet */
-.services-nav__card::before {
-    content: '';
+/* Det nye overlay, der erstatter dit gamle ::before */
+.services-nav__overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(14, 16, 24, 0.4); /* Mørk overlay med din main farve */
+    background: rgba(14, 16, 24, 0.4);
     border-radius: 10px;
+    z-index: 1; /* Ligger over billedet, under teksten */
 }
 
+/* Parallax billedet */
+.services-nav__image {
+    position: absolute;
+    top: -20%; /* Trækker billedet lidt op, så der er plads til at rykke det ned */
+    left: 0;
+    width: 100%;
+    height: 140%; /* Billedet SKAL være højere end 100% for at have plads til at bevæge sig */
+    object-fit: cover;
+    z-index: 0; /* Ligger helt bagerst */
+    
+    /* will-change fortæller browseren, at den skal gøre klar til at animere dette element, hvilket giver bedre performance */
+    will-change: transform; 
+}
+
+/* Teksten skal ligge øverst */
 .services-nav__title {
     color: var(--color-bg-light);
     position: relative;
-    z-index: 1;
+    z-index: 2; /* Øverste lag */
     font-size: 1.5rem;
 }
 
