@@ -17,9 +17,15 @@
 
 body {
     font-family: Verdana, sans-serif;
-    background-color: var(--color-bg-light);
     color: var(--color-text-main);
     line-height: 1.5;
+
+    background-image: repeating-linear-gradient(
+        to bottom,
+        var(--color-bg-light) 0px,        /* Starter med baggrundsfarven i toppen */
+        var(--color-secondary) 900px,     /* Fader glidende over til den sekundære farve ved 500px ned */
+        var(--color-bg-light) 1800px      /* Fader tilbage til baggrundsfarven ved 1000px ned */
+    );
 }
 
 img {
@@ -191,7 +197,7 @@ img {
 .reviews__item {
     /* flex: 0 0 80vw betyder: Voks ikke, skrump ikke, vær altid præcis 80% af skærmens bredde */
     flex: 0 0 70vw; 
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     padding: 30px 20px;
     border-radius: 10px;
     
@@ -265,7 +271,7 @@ img {
 }
 
 .info__box {
-    background-color: var(--color-primary);
+    background-color: var(--color-bg-light);
     padding: 20px;
     border-radius: 10px;
 }
