@@ -5,7 +5,7 @@
     --color-bg-light: #F6FCFF;
     --color-text-main: #0E1018;
     --color-primary: #80C9D8;
-    --color-secondary: #C7E7EE; /* Rettet fra #C7E7E */
+    --color-secondary: #C7E7EF;
     --color-cta: #F4921C;
 }
 
@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: sans-serif; /* Skift til din valgte font */
+    font-family: Verdana, sans-serif;
     background-color: var(--color-bg-light);
     color: var(--color-text-main);
     line-height: 1.5;
@@ -93,7 +93,7 @@ img {
 .hero {
     margin-top: 40px;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left;
 }
 
 .hero__title {
@@ -153,24 +153,56 @@ img {
     border-radius: 10px;
 }
 
-/* Karrusel */
+/* =========================================
+   Karrusel / Reviews (Mobile First)
+   ========================================= */
+
 .reviews {
-    background-color: var(--color-secondary);
-    padding: 30px 20px;
+    /* Trækker sektionen ud af de 20px padding fra .main-content */
+    margin-left: -20px;
+    margin-right: -20px;
     margin-bottom: 40px;
-    border-radius: 10px;
-    overflow: hidden; /* Vigtigt til når JS tilføjes */
+    
+    /* Tillader vandret scroll indtil du får bygget din JS */
+    overflow-x: auto;
+    
+    /* Skjuler scrollbaren for et renere, app-agtigt look */
+    scrollbar-width: none; /* Firefox */
+    
+    /* CSS Scroll Snap gør at den "klikker" fast på kasserne, 
+       hvilket er en genial midlertidig løsning før JS */
+    scroll-snap-type: x mandatory;
+}
+
+/* Skjuler scrollbar i Chrome/Safari/Edge */
+.reviews::-webkit-scrollbar {
+    display: none;
 }
 
 .reviews__track {
     display: flex;
-    gap: 20px;
+    gap: 15px; /* Afstanden mellem anmeldelserne */
+    
+    /* 10vw sørger for, at den 80vw brede kasse lander præcis i midten
+       (10vw venstre plads + 80vw kasse + 10vw højre plads = 100vw) */
+    padding: 0 10vw; 
 }
 
 .reviews__item {
-    min-width: 100%; /* Hver anmeldelse fylder 100% */
-    text-align: center;
+    /* flex: 0 0 80vw betyder: Voks ikke, skrump ikke, vær altid præcis 80% af skærmens bredde */
+    flex: 0 0 80vw; 
+    background-color: var(--color-secondary);
+    padding: 30px 20px;
+    border-radius: 10px;
+    
+    /* Får kassen til at 'snappe' til midten af skærmen når man scroller */
+    scroll-snap-align: center; 
+}
+
+.reviews__text {
     font-style: italic;
+    text-align: center;
+    color: var(--color-text-main);
 }
 
 /* Services Navigationskort (Store knapper) */
