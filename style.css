@@ -310,4 +310,37 @@ img {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
     }
+
+    /* Opsætning af de to kolonner */
+    .hero-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Deler siden i to lige store dele */
+        gap: 40px; /* God luft mellem tekst og billede */
+        align-items: center; /* Centrerer indholdet lodret ud for hinanden */
+        margin-top: 60px; /* Lidt ekstra luft i toppen på desktop */
+        margin-bottom: 60px;
+    }
+
+    /* Justering af venstre side (Tekst) */
+    .hero {
+        text-align: left; /* Venstrestillet tekst ser bedre ud på desktop */
+        margin: 0; /* Fjerner mobil-margin, da grid'et nu styrer afstanden */
+    }
+
+    /* Justering af højre side (Billede og tekstboks) */
+    .profile {
+        margin: 0;
+    }
+
+    .profile__image {
+        aspect-ratio: 3 / 4; /* Gør billedet højere (f.eks. 3 bred, 4 høj) */
+        width: 100%;
+        /* object-fit: cover; sørger stadig for at motivet ikke bliver mast */
+    }
+
+    .profile__text-box {
+        width: 100%; /* Sørger for at boksen bliver strukket helt ud til kanten af sin kolonne */
+        /* margin-top: -40px; (fra din mobile-first kode) sikrer at den stadig overlapper billedet */
+    }
+
 }
