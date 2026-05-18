@@ -276,9 +276,29 @@ img {
     border-radius: 10px;
 }
 
+.info__box-second {
+    background-color: var(--color-primary);
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .info__box-title {
     margin-bottom: 10px;
     color: var(--color-text-main);
+}
+
+.treatment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.treatment__image {
+    width: 100%;
+    aspect-ratio:1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 /* Footer */
