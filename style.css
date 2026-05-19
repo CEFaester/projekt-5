@@ -102,6 +102,7 @@ img {
     text-align: left;
 }
 
+
 .hero__title {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -115,6 +116,46 @@ img {
     font-size: 1.1rem;
     margin-bottom: 10px;
     font-weight: normal;
+}
+
+.hero--treatment {
+    position: relative; /* Vigtigt: Dette er ankeret for absolut placering */
+    width: 100%;
+    /* Vi giver sektionen en fast højde på mobil, eller bruger aspect-ratio */
+    aspect-ratio: 3 / 2; 
+    overflow: hidden; /* Sørger for at intet stikker ud */
+    border-radius: 10px;
+}
+
+.hero--treatment__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Sikrer at billedet fylder kassen uden at mases */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ligger bagerst */
+}
+
+.hero--treatment__title-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    
+    /* Gennemsigtig sort baggrund (0,0,0 er sort, 0.6 er 60% synlighed) */
+    background-color: rgb(from var(--color-primary) r g b / 80%);
+    border-radius: 10px;
+    
+    padding: 20px; /* Luft indeni kassen */
+    z-index: 2; /* Ligger ovenpå billedet */
+}
+
+.hero--treatment__title {
+    color: var(--color-text-main);
+    margin: 0;
+    font-size: 1.5rem;
 }
 
 /* Knap (General + Modifier) */
@@ -425,7 +466,6 @@ img {
 
     /* Justering af venstre side (Tekst) */
     .hero {
-        text-align: left; /* Venstrestillet tekst ser bedre ud på desktop */
         margin: 0; /* Fjerner mobil-margin, da grid'et nu styrer afstanden */
     }
 
@@ -452,6 +492,15 @@ img {
     .edu-carousel__track {
         padding: 40px 20px; /* Mindre side-padding på desktop */
         justify-content: flex-start;
+    }
+
+    .hero--treatment {
+        width: 100%;
+        height: 40vw;
+    }
+
+    .hero--treatment__title {
+        font-size: 2.2rem; /* Større skrift på desktop */
     }
 
 }
