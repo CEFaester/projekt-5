@@ -448,6 +448,8 @@ img {
     border-radius: 50px; /* Gør boksen til en rund pille */
     padding: 5px;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
 }
 
 .conditions__toggle-btn {
@@ -475,7 +477,10 @@ img {
     background-color: var(--color-bg-light); /* Eller primær farve, hvis du foretrækker det */
     border: 2px solid var(--color-secondary);
     border-radius: 10px;
-    padding: 25px;
+    padding: 50px 25px 25px 25px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Viser KUN den boks, der har --active klassen (som du senere styrer med JS) */
