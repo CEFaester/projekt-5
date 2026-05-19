@@ -28,6 +28,13 @@ body {
     );
 }
 
+h1, h2, h3 {
+    font-family: "Sen", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -462,7 +469,6 @@ img {
 .conditions__box {
     display: none; /* Skjuler boksene som standard på mobil */
     background-color: var(--color-bg-light); /* Eller primær farve, hvis du foretrækker det */
-    border: 2px solid var(--color-secondary);
     border-radius: 10px;
     padding: 50px 25px 25px 25px;
     margin-top: -40px;
