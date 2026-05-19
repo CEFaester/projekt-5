@@ -423,6 +423,75 @@ img {
     padding: 30px 20px;
 }
 
+/* =========================================
+   Symptomer & Årsager (Conditions)
+   ========================================= */
+
+/* Overordnet wrapper */
+.conditions {
+    margin-bottom: 40px;
+}
+
+/* Toggle Switch (Mobildesign) */
+.conditions__toggle-switch {
+    display: flex;
+    background-color: var(--color-secondary);
+    border-radius: 50px; /* Gør boksen til en rund pille */
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.conditions__toggle-btn {
+    flex: 1; /* Deler pladsen 50/50 mellem knapperne */
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    border-radius: 50px; /* Knappen bliver også rund */
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Den aktive knap ser ud som om den har en baggrund */
+.conditions__toggle-btn--active {
+    background-color: var(--color-bg-light);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Let skygge for at poppe frem */
+}
+
+/* Listerne / Boksene */
+.conditions__box {
+    display: none; /* Skjuler boksene som standard på mobil */
+    background-color: var(--color-bg-light); /* Eller primær farve, hvis du foretrækker det */
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+/* Viser KUN den boks, der har --active klassen (som du senere styrer med JS) */
+.conditions__box.conditions__box--active {
+    display: block; 
+}
+
+/* Skjul titlen på mobil, da toggle-knappen gør det tydeligt, hvad man læser */
+.conditions__box-title {
+    display: none;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--color-text-main);
+}
+
+.conditions__list {
+    list-style-type: disc;
+    padding-left: 20px; /* Giver plads til bullet points */
+}
+
+.conditions__list-item {
+    margin-bottom: 10px;
+    color: var(--color-text-main);
+}
+
 
 /* =========================================
    Media Queries (Desktop)
@@ -518,6 +587,31 @@ img {
     .treatment-cta-wrapper {
         margin-top: 60px;    /* Lidt ekstra luft på store skærme */
         margin-bottom: 60px;
+    }
+
+    /* 1. Skjul toggle-switchen fuldstændigt! */
+    .conditions__toggle-switch {
+        display: none;
+    }
+
+    /* 2. Lav grid til de to bokse, så de står side om side */
+    .conditions__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px; /* Afstand mellem de to lister */
+    }
+
+    /* 3. Tving BEGGE bokse til at blive vist (overskriver display: none fra mobil) */
+    .conditions__box, 
+    .conditions__box.conditions__box--active {
+        display: block; 
+        /* Fjerner kantfarven på desktop hvis du vil have et mere rent look, 
+           ellers kan du lade den være */
+    }
+
+    /* 4. Vis titlerne ("Symptomer" og "Årsager") i toppen af boksene igen */
+    .conditions__box-title {
+        display: block;
     }
 
 }

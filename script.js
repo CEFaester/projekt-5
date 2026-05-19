@@ -1,29 +1,45 @@
-// Vent på at HTML'en er indlæst
+// Vi venter én gang på, at hele HTML'en er indlæst
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Find alle parallax-billeder på siden
+
+    /* =========================================
+       1. PARALLAX EFFEKT (Til knapperne)
+       ========================================= */
     const parallaxImages = document.querySelectorAll('.services-nav__image');
 
-    // Lyt efter at brugeren scroller
-    window.addEventListener('scroll', () => {
-        
-        // Kør koden for hvert billede
-        parallaxImages.forEach(image => {
-            
-            // Få fat i forældre-elementet (.services-nav__card) og find ud af, hvor det er på skærmen
-            const cardRect = image.parentElement.getBoundingClientRect();
-            
-            // Hvis kortet slet ikke er synligt på skærmen, springer vi over for at spare på computerkræfterne
-            if (cardRect.bottom < 0 || cardRect.top > window.innerHeight) {
-                return; 
-            }
+    // Sørger for at parallax-koden kun kører, hvis billederne faktisk findes på siden
+    if (parallaxImages.length > 0) {
+        window.addEventListener('scroll', () => {
+            parallaxImages.forEach(image => {
+                const cardRect = image.parentElement.getBoundingClientRect();
+                
+                if (cardRect.bottom < 0 || cardRect.top > window.innerHeight) return; 
 
-            // Måler hvor meget kortet har bevæget sig i forhold til vinduet
-            // Vi ganger med 0.15 for at bremse hastigheden. Et lavere tal = langsommere bevægelse.
-            const yPos = (cardRect.top * 0.05);
-
-            // Flyt billedet på Y-aksen (op/ned)
-            image.style.transform = `translateY(${yPos}px)`;
+                const yPos = (cardRect.top * 0.05);
+                image.style.transform = `translateY(${yPos}px)`;
+            });
         });
-    });
+    }
+
+    /* =========================================
+       2. TOGGLE SWITCH (Symptomer / Årsager)
+       ========================================= */
+    const toggleButtons = document.querySelectorAll('.conditions__toggle-btn');
+    const contentBoxes = document.querySelectorAll('.conditions__box');
+
+    // Sørger for at koden kun kører, hvis knapperne findes på siden
+    if (toggleButtons.length > 0) {
+        toggleButtons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                
+                // Nulstil alt
+                toggleButtons.forEach(b => b.classList.remove('conditions__toggle-btn--active'));
+                contentBoxes.forEach(box => box.classList.remove('conditions__box--active'));
+
+                // Aktiver den valgte
+                btn.classList.add('conditions__toggle-btn--active');
+                contentBoxes[index].classList.add('conditions__box--active');
+            });
+        });
+    }
+
 });
