@@ -301,6 +301,11 @@ img {
     border-radius: 10px;
 }
 
+.info__box-list {
+    list-style: disc;
+    padding-left: 20px;
+}
+
 /* =========================================
    Uddannelses Karrusel (edu-carousel)
    ========================================= */
