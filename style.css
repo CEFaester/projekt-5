@@ -131,6 +131,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Sikrer at billedet fylder kassen uden at mases */
+    object-position: center 30%;
     position: absolute;
     top: 0;
     left: 0;
@@ -156,6 +157,13 @@ img {
     color: var(--color-text-main);
     margin: 0;
     font-size: 1.5rem;
+}
+
+.treatment-cta-wrapper {
+    margin-top: 40px;    /* Luft over knappen */
+    margin-bottom: 40px; /* Luft under knappen */
+    padding: 0 20px;     /* Sørger for at knappen ikke rammer skærmkanten på mobil */
+    text-align: center;  /* Centrerer knappen */
 }
 
 /* Knap (General + Modifier) */
@@ -499,8 +507,17 @@ img {
         height: 40vw;
     }
 
+    .hero--treatment__image {
+        object-position: center 22%; /* Justerer billedets position for at passe bedre på desktop */
+    }
+
     .hero--treatment__title {
         font-size: 2.2rem; /* Større skrift på desktop */
+    }
+
+    .treatment-cta-wrapper {
+        margin-top: 60px;    /* Lidt ekstra luft på store skærme */
+        margin-bottom: 60px;
     }
 
 }
