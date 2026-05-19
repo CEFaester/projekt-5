@@ -134,6 +134,7 @@ img {
     aspect-ratio: 3 / 2; 
     overflow: hidden; /* Sørger for at intet stikker ud */
     border-radius: 10px;
+    margin: 25px 0 25px 0;
 }
 
 .hero--treatment__image {
@@ -343,20 +344,6 @@ img {
 .info__box-title {
     margin-bottom: 10px;
     color: var(--color-text-main);
-}
-
-.treatment {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.treatment__image {
-    width: 100%;
-    aspect-ratio:1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
 }
 
 .info__box-list {
