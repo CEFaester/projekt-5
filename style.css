@@ -44,32 +44,44 @@ img {
 }
 
 /* =========================================
-   Blocks & Elements (BEM)
+   Header & Sticky (Mobile-First)
    ========================================= */
 
-/* Header */
 .header {
-    background-color: var(--color-bg-light); /* Eksempel farve */
-    padding: 15px 20px; /* Padding indeni headeren, selvom den går til kant */
+    background-color: var(--color-bg-light); 
+    padding: 15px 20px;
+    
+    /* GØR HEADEREN STICKY */
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Ligger over alt andet indhold på siden */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    
+    /* Mobil layout: Flexbox tillader os at flytte rundt på rækkefølgen */
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.header__top {
-    display: flex;
+    flex-wrap: wrap; /* Tillader at telefonnummeret falder ned på næste linje */
     justify-content: space-between;
     align-items: center;
 }
 
-.header__logo {
-    flex-grow: 1; /* Lader logoet tage det meste af pladsen */
-}
-
 .header__logo-img {
-    max-width: 290px; /* Juster efter dit logo */
+    max-width: 150px;
 }
 
+/* Skjul de rigtige menupunkter som standard på mobil */
+.header__nav {
+    display: none;
+}
+
+/* Tving telefonnummeret ned på sin egen linje på mobil og centrer det */
+.header__contact {
+    width: 100%;
+    text-align: center;
+    order: 3; /* Placerer det til sidst */
+    margin-top: 15px;
+}
+
+/* Burgermenu styling */
 .header__burger {
     background: none;
     border: none;
@@ -77,16 +89,13 @@ img {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    order: 2; /* Placerer den ved siden af logoet på mobil */
 }
 
 .header__burger-line {
     width: 30px;
     height: 3px;
     background-color: var(--color-text-main);
-}
-
-.header__contact {
-    text-align: center;
 }
 
 .header__phone {
@@ -435,7 +444,7 @@ img {
 /* Toggle Switch (Mobildesign) */
 .conditions__toggle-switch {
     display: flex;
-    background-color: var(--color-secondary);
+    background-color: var(--color-text-main);
     border-radius: 50px; /* Gør boksen til en rund pille */
     padding: 5px;
     margin-bottom: 20px;
@@ -449,7 +458,7 @@ img {
     border-radius: 50px; /* Knappen bliver også rund */
     font-weight: bold;
     font-size: 1rem;
-    color: var(--color-text-main);
+    color: var(--color-bg-light);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -457,7 +466,7 @@ img {
 /* Den aktive knap ser ud som om den har en baggrund */
 .conditions__toggle-btn--active {
     background-color: var(--color-bg-light);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Let skygge for at poppe frem */
+    color: var(--color-text-main);
 }
 
 /* Listerne / Boksene */
@@ -497,19 +506,55 @@ img {
    Media Queries (Desktop)
    ========================================= */
 @media (min-width: 768px) {
-    /* Header ændringer */
     .header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        flex-wrap: wrap; 
+        padding: 20px 40px;
     }
 
-    .header__contact {
-        order: 2; /* Flytter telefonnummeret i midten */
-    }
-
+    /* 1. Skjul burger-knappen */
     .header__burger {
-        order: 3; /* Holder burgeren til højre */
+        display: none;
+    }
+
+    /* 2. Logo (Bliver automatisk i venstre side) */
+    .header__logo {
+        order: 1;
+    }
+
+    /* 3. Telefonnummeret (Rykkes op ved siden af logoet, men helt til højre) */
+    .header__contact {
+        order: 2;
+        width: auto;
+        margin-top: 0;
+    }
+
+    /* 4. Navigation (Tvinges ned på næste linje) */
+    .header__nav {
+        display: block;
+        order: 3; /* Placerer den under logo og telefon */
+        width: 100%; /* Tvinger menuen til at fylde en hel række for sig selv */
+        margin-top: 20px; /* Giver lidt luft op til logoet */
+    }
+
+    .header__menu {
+        display: flex;
+        justify-content: center; /* Sætter punkterne i midten af skærmen */
+        gap: 20px; /* Lidt mindre afstand mellem punkterne (var 30px før) */
+        list-style: none;
+    }
+
+    .header__menu-link {
+        color: var(--color-text-main);
+        text-decoration: none;
+        font-weight: bold;
+        
+        /* Gjort teksten lidt mindre (fra 1.1rem til 0.95rem eller 1rem) */
+        font-size: 0.95rem; 
+        transition: color 0.2s ease;
+    }
+
+    .header__menu-link:hover {
+        color: var(--color-cta);
     }
     
     .btn--cta {
