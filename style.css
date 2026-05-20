@@ -557,10 +557,11 @@ img {
 .booking-progress__list::before {
     content: '';
     position: absolute;
-    top: 15px; /* Halvdelen af cirklens højde */
+    top: 12px; 
+    
     left: 0;
     right: 0;
-    height: 3px;
+    height: 2px;
     background-color: var(--color-text-main);
     z-index: 1;
 }
@@ -574,25 +575,44 @@ img {
     flex: 1; /* Gør at hvert step fylder lige meget plads, så de bliver jævnt fordelt */
 }
 
+/* --- Progress Bar Cirkler (Nu som Radio-stil) --- */
 .booking-progress__circle {
-    width: 30px;
-    height: 30px;
-    background-color: var(--color-secondary);
-    border: 3px solid var(--color-text-main);
+    width: 24px;  /* Samme størrelse som dine nye radio-knapper */
+    height: 24px;
+    background-color: var(--color-bg-light);
+    border: 2px solid var(--color-text-main);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: var(--color-text-main);
-    transition: all 0.3s ease;
+    
+    /* TRICK: Skjuler tallene (1, 2, 3...) visuelt, men beholder dem i koden */
+    color: transparent;
+    font-size: 0;
+    
+    /* Gør klar til at centrere den inderste prik */
+    display: grid;
+    place-content: center;
+    transition: border-color 0.3s ease;
 }
 
-/* Aktivt step i progress baren */
-.booking-progress__step--active .booking-progress__circle {
+/* Den lille prik indeni (Skjult fra start via scale(0)) */
+.booking-progress__circle::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
     background-color: var(--color-cta);
+    transform: scale(0);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Samme bounce-effekt */
+}
+
+/* Når steppet er aktivt (Cirklen får farvet kant) */
+.booking-progress__step--active .booking-progress__circle {
     border-color: var(--color-cta);
-    color: var(--color-bg-light);
+    /* Vi fjerner background-color ændringen her, så baggrunden forbliver lys og prikken kan ses */
+}
+
+/* Få prikken til at poppe frem i de aktive steps */
+.booking-progress__step--active .booking-progress__circle::before {
+    transform: scale(1);
 }
 
 /* Skjul teksten på mobil, så det ikke roder - vis kun cirkler */
@@ -617,14 +637,6 @@ img {
 /* Vis kun det aktive step */
 .booking-step--active {
     display: block;
-}
-
-/* Spørgsmål knapper */
-.booking-question__buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-    margin-bottom: 30px;
 }
 
 /* Behandlingskort (Det layout du bad om) */
@@ -722,6 +734,68 @@ img {
 .booking-guest {
     text-align: center;
     margin-top: 30px;
+}
+
+/* --- Spørgsmål Radio Knapper --- */
+.booking-question__radios {
+    display: flex;
+    gap: 25px; /* God afstand mellem Ja og Nej */
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.booking-radio {
+    display: flex;
+    align-items: center; /* Sørger for at cirklen og teksten står pænt på linje */
+    gap: 8px; /* Afstand mellem cirklen og teksten */
+    cursor: pointer; /* Viser en hånd-cursor når man peger på dem */
+    font-size: 1rem;
+    color: var(--color-text-main);
+}
+
+/* 1. Den ydre cirkel (Selve input-feltet) */
+.booking-radio__input {
+    /* MAGIEN: Sletter browserens standard-design fuldstændigt */
+    appearance: none; 
+    -webkit-appearance: none; /* Sikrer at det også virker på ældre iPhones */
+    
+    /* Nu kan vi bygge vores egen! */
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--color-secondary); /* Kanten når den IKKE er valgt */
+    border-radius: 50%; /* Gør den helt rund */
+    background-color: var(--color-bg-light); /* Baggrundsfarven */
+    
+    /* Vi bruger Grid for at gøre det nemt at placere prikken præcis i midten */
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 2. Den inderste prik (Vi bygger den, men skjuler den i starten) */
+.booking-radio__input::before {
+    content: ""; /* Nødvendigt for at ::before elementer virker */
+    width: 20px; /* Størrelsen på den inderste prik */
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-cta); /* Farven på prikken */
+    
+    /* Vi "skjuler" prikken ved at krympe dens størrelse ned til 0 */
+    transform: scale(0);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Giver prikken en lille "bounce" animation når den popper frem */
+}
+
+/* 3. Når brugeren har valgt knappen (:checked) */
+.booking-radio__input:checked {
+    /* Ændr kanten til din temas-farve */
+    border-color: var(--color-cta); 
+}
+
+/* 4. Få prikken til at dukke op, når knappen er valgt */
+.booking-radio__input:checked::before {
+    /* Vi forstørrer prikken op til sin normale størrelse (100%) */
+    transform: scale(1); 
 }
 
 /* Navigation Bunden */
@@ -958,7 +1032,8 @@ img {
     .booking-progress__list::before {
         top: 0;
         bottom: 0;
-        left: 14px; /* Centreret bag 30px cirklerne */
+        left: 11px; 
+        
         width: 2px;
         height: auto;
     }

@@ -80,20 +80,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* --- 6. SPØRGSMÅL (JA/NEJ) OG GENERERING AF BEHANDLINGER --- */
-    const filterBtns = document.querySelectorAll('.booking-filter-btn');
+    // Vi finder alle de nye radio-inputs i stedet for knapperne
+    const radioInputs = document.querySelectorAll('.booking-radio__input');
     
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // Find ud af om de trykkede 'yes' eller 'no' via knappens data-attribut
-            const answer = e.target.dataset.first; 
+    radioInputs.forEach(radio => {
+        // Vi lytter efter 'change' (når prikken flyttes) frem for 'click'
+        radio.addEventListener('change', (e) => {
             
-            // Hent den rigtige liste fra vores data-objekt i toppen
+            // Vi henter værdien fra det input, der lige er blevet valgt (enten 'yes' eller 'no')
+            const answer = e.target.value; 
+            
+            // Hent den rigtige liste fra vores data-objekt
             const treatmentsToShow = treatmentsData[answer];
 
-            // Tøm html'en i boksen
+            // Tøm html'en i listen, så den er klar til de nye kort
             treatmentList.innerHTML = '';
 
-            // Brug en løkke til at bygge HTML-kort for hver behandling i listen
+            // Byg HTML-kortene for behandlingerne
             treatmentsToShow.forEach(treatment => {
                 const cardHtml = `
                     <div class="treatment-card">
@@ -102,13 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="treatment-card__price">${treatment.price}</div>
                     </div>
                 `;
-                // Indsæt kortet i listen
                 treatmentList.innerHTML += cardHtml;
             });
-
-            // Gør knappen aktiv rent visuelt (valgfrit ekstra pift)
-            filterBtns.forEach(b => b.style.backgroundColor = 'transparent');
-            e.target.style.backgroundColor = 'var(--color-secondary)';
+            
         });
     });
 
