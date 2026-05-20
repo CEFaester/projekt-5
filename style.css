@@ -139,6 +139,7 @@ img {
     width: 100%;
     /* Vi giver sektionen en fast højde på mobil, eller bruger aspect-ratio */
     aspect-ratio: 3 / 2;
+    max-height: 600px;
     overflow: hidden; /* Sørger for at intet stikker ud */
     border-radius: 10px;
     margin: 25px 0 25px 0;
@@ -197,6 +198,18 @@ img {
     background-color: var(--color-cta);
     color: var(--color-bg-light); /* Tekst på mørk/farvet baggrund */
     width: 100%; /* Gør knappen bred på mobil */
+}
+
+.info__box-cta {
+    display: block;      /* Nødvendigt for at margin-tricket virker på et <a> tag */
+    width: 100%;  /* Sørger for, at knappen ikke strækker sig til 100% bredde */
+    
+    /* Magien der skubber knappen til højre: */
+    margin: auto; 
+    
+    /* Din ønskede space (luft) rundt om knappen: */
+    margin-top: 25px;    /* Skubber knappen ned fra teksten over den */
+    margin-bottom: 5px;  /* Lidt ekstra luft i bunden, udover boksens egen padding */
 }
 
 /* Profil Sektion (Overlappende boks) */
