@@ -518,19 +518,33 @@ img {
 
 /* Basis layout på mobil (stablet) */
 .booking-layout {
-    margin-top: 40px;
-    margin-bottom: 60px;
+    /* NYT: Sæt en max-bredde så den ikke bliver gigantisk på store skærme */
+    width: calc(100% - 40px);
+    max-width: 1000px; 
+    
+    /* NYT: auto i højre og venstre side sørger for at kassen altid er centreret */
+    margin: 40px auto 60px auto; 
+    
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    
+    /* Dit kasse-design */
+    background-color: var(--color-bg-light);
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 30px 20px;
 }
 
 /* --- Progress Bar --- */
 .booking-progress {
-    background-color: var(--color-bg-light);
-    border: 2px solid var(--color-secondary);
-    border-radius: 10px;
-    padding: 20px;
+    /* NYT: Fjerner boks-designet så den smelter ind i over-kassen */
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-secondary);
 }
 
 .booking-progress__list {
@@ -558,6 +572,7 @@ img {
     align-items: center;
     gap: 5px;
     z-index: 2; /* Ligger ovenpå stregen */
+    flex: 1; /* Gør at hvert step fylder lige meget plads, så de bliver jævnt fordelt */
 }
 
 .booking-progress__circle {
@@ -589,10 +604,9 @@ img {
 
 /* --- Indholds-området --- */
 .booking-content {
-    background-color: var(--color-bg-light);
-    border: 2px solid var(--color-secondary);
-    border-radius: 10px;
-    padding: 30px 20px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 /* Skjul alle steps som standard */
@@ -879,16 +893,35 @@ img {
     }
 
     .booking-layout {
-        flex-direction: row; /* Lægger boksene side om side */
-        align-items: flex-start; /* Forhindrer dem i at strække sig lodret */
+        flex-direction: row; 
+        align-items: flex-start; 
+        
+        /* NYT: Vi fjerner den fælles kasse, så de kan blive til to separate */
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        gap: 30px; /* Skaber afstanden mellem de to bokse */
     }
 
     .booking-progress {
-        flex: 0 0 250px; /* Låser bredden på venstre boks til 250px */
+        flex: 0 0 250px; 
+        
+        /* NYT: Giv venstre boks sit eget udseende tilbage */
+        background-color: var(--color-bg-light);
+        border: 2px solid var(--color-secondary);
+        border-radius: 10px;
+        padding: 30px;
+        
+        margin-bottom: 0; /* Fjerner marginen fra mobil */
     }
 
     .booking-content {
-        flex-grow: 1; /* Lader indholdet fylde resten af pladsen */
+        flex-grow: 1; 
+        
+        /* NYT: Giv højre boks sit eget udseende tilbage */
+        background-color: var(--color-bg-light);
+        border: 2px solid var(--color-secondary);
+        border-radius: 10px;
         padding: 40px;
     }
 
