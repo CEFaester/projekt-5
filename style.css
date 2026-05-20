@@ -529,22 +529,21 @@ img {
     flex-direction: column;
     
     /* Dit kasse-design */
-    background-color: var(--color-bg-light);
-    border: 2px solid var(--color-secondary);
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-bg-light);
     border-radius: 10px;
     padding: 30px 20px;
 }
 
 /* --- Progress Bar --- */
 .booking-progress {
-    /* NYT: Fjerner boks-designet så den smelter ind i over-kassen */
     background-color: transparent;
     border: none;
     border-radius: 0;
     padding: 0;
     padding-bottom: 30px;
     margin-bottom: 30px;
-    border-bottom: 2px solid var(--color-secondary);
+    width: 100%;
 }
 
 .booking-progress__list {
@@ -561,8 +560,8 @@ img {
     top: 15px; /* Halvdelen af cirklens højde */
     left: 0;
     right: 0;
-    height: 2px;
-    background-color: var(--color-secondary);
+    height: 3px;
+    background-color: var(--color-text-main);
     z-index: 1;
 }
 
@@ -578,8 +577,8 @@ img {
 .booking-progress__circle {
     width: 30px;
     height: 30px;
-    background-color: var(--color-bg-light);
-    border: 2px solid var(--color-secondary);
+    background-color: var(--color-secondary);
+    border: 3px solid var(--color-text-main);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -607,6 +606,7 @@ img {
     background-color: transparent;
     border: none;
     padding: 0;
+    width: 100%;
 }
 
 /* Skjul alle steps som standard */
@@ -630,8 +630,9 @@ img {
 /* Behandlingskort (Det layout du bad om) */
 .treatment-card {
     border: 2px solid var(--color-primary);
-    border-radius: 8px;
-    padding: 20px;
+    background-color: var(--color-bg-light);
+    border-radius: 10px;
+    padding: 10px;
     margin-bottom: 15px;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -639,6 +640,10 @@ img {
     display: grid;
     grid-template-columns: 1fr auto; 
     gap: 10px;
+
+    font-family: "Sen", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .treatment-card:hover, .treatment-card--selected {
@@ -647,16 +652,14 @@ img {
 
 .treatment-card__title {
     grid-column: 1 / -1; /* Får titlen til at fylde hele toppen */
-    font-weight: bold;
-    font-size: 1.1rem;
 }
 
 .treatment-card__time {
-    color: #555; /* Lidt diskret farve til tiden */
+    font-weight: 400;
 }
 
 .treatment-card__price {
-    font-weight: bold;
+    font-weight: 400;
     text-align: right;
 }
 
@@ -728,6 +731,26 @@ img {
     margin-top: 40px;
     border-top: 2px solid var(--color-secondary);
     padding-top: 20px;
+}
+
+.booking-nav__btn {
+    padding: 10px 20px;
+    width: 100px;
+    background-color: var(--color-cta);
+    color: var(--color-bg-light);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.booking-nav__btn--prev {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    margin-right: 20px;
+}
+
+.booking-nav__btn--prev {
+    margin-right: 20px;
 }
 
 
