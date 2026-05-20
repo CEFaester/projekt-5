@@ -512,6 +512,210 @@ img {
     color: var(--color-text-main);
 }
 
+/* =========================================
+   Booking Layout
+   ========================================= */
+
+/* Basis layout på mobil (stablet) */
+.booking-layout {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- Progress Bar --- */
+.booking-progress {
+    background-color: var(--color-bg-light);
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.booking-progress__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    position: relative;
+}
+
+/* Stregen bagved cirklerne på mobil (vandret) */
+.booking-progress__list::before {
+    content: '';
+    position: absolute;
+    top: 15px; /* Halvdelen af cirklens højde */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-secondary);
+    z-index: 1;
+}
+
+.booking-progress__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 2; /* Ligger ovenpå stregen */
+}
+
+.booking-progress__circle {
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-bg-light);
+    border: 2px solid var(--color-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--color-text-main);
+    transition: all 0.3s ease;
+}
+
+/* Aktivt step i progress baren */
+.booking-progress__step--active .booking-progress__circle {
+    background-color: var(--color-cta);
+    border-color: var(--color-cta);
+    color: var(--color-bg-light);
+}
+
+/* Skjul teksten på mobil, så det ikke roder - vis kun cirkler */
+.booking-progress__text {
+    display: none; 
+}
+
+
+/* --- Indholds-området --- */
+.booking-content {
+    background-color: var(--color-bg-light);
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 30px 20px;
+}
+
+/* Skjul alle steps som standard */
+.booking-step {
+    display: none;
+}
+
+/* Vis kun det aktive step */
+.booking-step--active {
+    display: block;
+}
+
+/* Spørgsmål knapper */
+.booking-question__buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+/* Behandlingskort (Det layout du bad om) */
+.treatment-card {
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    /* Gør kortet til et lille grid */
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    gap: 10px;
+}
+
+.treatment-card:hover, .treatment-card--selected {
+    background-color: var(--color-secondary);
+}
+
+.treatment-card__title {
+    grid-column: 1 / -1; /* Får titlen til at fylde hele toppen */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.treatment-card__time {
+    color: #555; /* Lidt diskret farve til tiden */
+}
+
+.treatment-card__price {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Inputs & Kalender */
+.booking-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.booking-times {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.booking-time-btn {
+    padding: 10px;
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.booking-time-btn:hover, .booking-time-btn--selected {
+    background-color: var(--color-primary);
+}
+
+/* Accordion */
+.booking-accordion {
+    margin-bottom: 10px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.booking-accordion__header {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-bg-light);
+    border: none;
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.booking-accordion__content {
+    display: none; /* Skjult som standard */
+    padding: 20px;
+    background-color: var(--color-secondary);
+}
+
+.booking-accordion__content--active {
+    display: block; /* Vises når aktiv */
+}
+
+.booking-guest {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Navigation Bunden */
+.booking-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    border-top: 2px solid var(--color-secondary);
+    padding-top: 20px;
+}
+
 
 /* =========================================
    Media Queries (Desktop)
@@ -574,8 +778,7 @@ img {
 
     .info__box-cta {
     width: 300px;  /* Sørger for, at knappen ikke strækker sig til 100% bredde */
-
-}
+    }
 
     /* Gør store knapper til et grid/flex på række */
     .services-nav {
@@ -673,6 +876,44 @@ img {
 
     .info__box--wide {
         grid-column: 1 / -1; 
+    }
+
+    .booking-layout {
+        flex-direction: row; /* Lægger boksene side om side */
+        align-items: flex-start; /* Forhindrer dem i at strække sig lodret */
+    }
+
+    .booking-progress {
+        flex: 0 0 250px; /* Låser bredden på venstre boks til 250px */
+    }
+
+    .booking-content {
+        flex-grow: 1; /* Lader indholdet fylde resten af pladsen */
+        padding: 40px;
+    }
+
+    /* Gør progress baren lodret i stedet for vandret */
+    .booking-progress__list {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Den bagvedliggende streg skal nu være lodret */
+    .booking-progress__list::before {
+        top: 0;
+        bottom: 0;
+        left: 14px; /* Centreret bag 30px cirklerne */
+        width: 2px;
+        height: auto;
+    }
+
+    .booking-progress__step {
+        flex-direction: row; /* Cirkel og tekst side om side */
+    }
+
+    .booking-progress__text {
+        display: block; /* Vis teksten på desktop */
+        font-weight: bold;
     }
 
 }

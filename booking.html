@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="da">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fysioterapi med høj faglighed</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="booking.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
+    </head>
+<body class="page">
+
+        <!-- Header (Går helt ud til kanten) -->
+    <header class="header">
+        
+        <div class="header__logo">
+            <img src="assets/logo.svg" alt="Fysioterapi Logo" class="header__logo-img">
+        </div>
+
+        <nav class="header__nav">
+            <ul class="header__menu">
+                <li class="header__menu-item"><a href="#forside" class="header__menu-link">Behandlinger</a></li>
+                <li class="header__menu-item"><a href="#behandlinger" class="header__menu-link">Holdtræning</a></li>
+                <li class="header__menu-item"><a href="#priser" class="header__menu-link">Erhvervsaftaler</a></li>
+                <li class="header__menu-item"><a href="#om-mig" class="header__menu-link">Priser</a></li>
+                <li class="header__menu-item"><a href="#om-mig" class="header__menu-link">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <div class="header__contact">
+            <a href="tel:+4512345678" class="header__phone">TLF: 60 86 67 70</a>
+        </div>
+
+        <button class="header__burger" aria-label="Åbn menu">
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+        </button>
+
+    </header>
+    <div class="booking-layout container">
+    
+        <aside class="booking-progress">
+            <ul class="booking-progress__list">
+                <li class="booking-progress__step booking-progress__step--active" data-progress="1">
+                    <span class="booking-progress__circle">1</span>
+                    <span class="booking-progress__text">Behandling</span>
+                </li>
+                <li class="booking-progress__step" data-progress="2">
+                    <span class="booking-progress__circle">2</span>
+                    <span class="booking-progress__text">Tidspunkt</span>
+                </li>
+                <li class="booking-progress__step" data-progress="3">
+                    <span class="booking-progress__circle">3</span>
+                    <span class="booking-progress__text">Profil</span>
+                </li>
+                <li class="booking-progress__step" data-progress="4">
+                    <span class="booking-progress__circle">4</span>
+                    <span class="booking-progress__text">Detaljer</span>
+                </li>
+                <li class="booking-progress__step" data-progress="5">
+                    <span class="booking-progress__circle">5</span>
+                    <span class="booking-progress__text">Bekræftelse</span>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="booking-content">
+            
+            <div class="booking-step booking-step--active" data-step="1">
+                <h2>Hvad søger du hjælp til?</h2>
+                
+                <div class="booking-question">
+                    <p>Er det din første konsultation hos os?</p>
+                    <div class="booking-question__buttons">
+                        <button class="btn booking-filter-btn" data-first="yes">Ja</button>
+                        <button class="btn booking-filter-btn" data-first="no">Nej</button>
+                    </div>
+                </div>
+
+                <div class="booking-treatments" id="treatment-list">
+                    <p>Vælg venligst "Ja" eller "Nej" ovenfor for at se behandlinger.</p>
+                </div>
+            </div>
+
+            <div class="booking-step" data-step="2">
+                <h2>Vælg tidspunkt</h2>
+                <div class="booking-calendar-placeholder">
+                    <input type="date" class="booking-input" id="booking-date">
+                </div>
+                <div class="booking-times">
+                    <button class="booking-time-btn">09:00</button>
+                    <button class="booking-time-btn">10:30</button>
+                    <button class="booking-time-btn">13:00</button>
+                    <button class="booking-time-btn">14:15</button>
+                </div>
+            </div>
+
+            <div class="booking-step" data-step="3">
+                <h2>Hvem skal behandles?</h2>
+                
+                <div class="booking-accordion">
+                    <button class="booking-accordion__header">Log ind</button>
+                    <div class="booking-accordion__content">
+                        <input type="email" placeholder="Email" class="booking-input">
+                        <input type="password" placeholder="Adgangskode" class="booking-input">
+                        <button class="btn btn--cta booking-auth-btn" data-auth="login">Log ind og fortsæt</button>
+                    </div>
+                </div>
+
+                <div class="booking-accordion">
+                    <button class="booking-accordion__header">Opret profil</button>
+                    <div class="booking-accordion__content">
+                        <input type="text" placeholder="Fulde navn" class="booking-input">
+                        <input type="email" placeholder="Email" class="booking-input">
+                        <input type="password" placeholder="Vælg adgangskode" class="booking-input">
+                        <button class="btn btn--cta booking-auth-btn" data-auth="create">Opret og fortsæt</button>
+                    </div>
+                </div>
+
+                <div class="booking-guest">
+                    <p>eller</p>
+                    <button class="btn booking-auth-btn" data-auth="guest">Fortsæt uden at logge ind</button>
+                </div>
+            </div>
+
+            <div class="booking-step" data-step="4">
+                <h2>Dine oplysninger</h2>
+                <input type="text" placeholder="Fulde navn" class="booking-input">
+                <input type="email" placeholder="Email" class="booking-input">
+                <input type="tel" placeholder="Telefonnummer" class="booking-input">
+            </div>
+
+            <div class="booking-step" data-step="5">
+                <h2>Tak for din booking!</h2>
+                <p>Vi glæder os til at se dig hos Grocott Fysioterapi.</p>
+                <div class="info__box">
+                    <p>Du vil modtage en bekræftelse på din booking via email og SMS inden for få minutter.</p>
+                </div>
+            </div>
+
+            <div class="booking-nav">
+                <button class="btn booking-nav__btn booking-nav__btn--prev" id="btn-prev">← Tilbage</button>
+                <button class="btn btn--cta booking-nav__btn booking-nav__btn--next" id="btn-next">Næste step →</button>
+            </div>
+
+        </main>
+    </div>
+        <!-- Footer (Går helt ud til kanten) -->
+    <footer class="footer">
+        <p class="footer__text">© 2026 Fysioterapien</p>
+    </footer>
+</body>
+</html>
