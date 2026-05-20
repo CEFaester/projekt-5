@@ -46,7 +46,7 @@ img {
 /* Giver de 20px padding på alt indhold undtagen header/footer */
 .main-content {
     padding: 0 20px;
-    max-width: 1200px; /* Til desktop */
+    max-width: 1000px; /* Til desktop */
     margin: 0 auto;    /* Centrerer indhold på store skærme */
 }
 
@@ -138,7 +138,7 @@ img {
     position: relative; /* Vigtigt: Dette er ankeret for absolut placering */
     width: 100%;
     /* Vi giver sektionen en fast højde på mobil, eller bruger aspect-ratio */
-    aspect-ratio: 3 / 2; 
+    aspect-ratio: 3 / 2;
     overflow: hidden; /* Sørger for at intet stikker ud */
     border-radius: 10px;
     margin: 25px 0 25px 0;
@@ -655,6 +655,10 @@ img {
     /* 4. Vis titlerne ("Symptomer" og "Årsager") i toppen af boksene igen */
     .conditions__box-title {
         display: block;
+    }
+
+    .info__box--wide {
+        grid-column: 1 / -1; 
     }
 
 }
