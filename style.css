@@ -349,10 +349,8 @@ img {
     border-radius: 10px;
 }
 
-.info__box-second {
+.info__box--dark {
     background-color: var(--color-primary);
-    padding: 20px;
-    border-radius: 10px;
 }
 
 .info__box-title {
@@ -389,7 +387,7 @@ img {
 }
 
 .edu-carousel__item {
-    flex: 0 0 80vw; /* Hvert kort fylder 80% af skærmbredden */
+    flex: 0 0 70vw; /* Hvert kort fylder 80% af skærmbredden */
     background-color: var(--color-primary);
     border-radius: 10px; /* Bløde, runde hjørner som på billedet */
     display: flex;
@@ -402,7 +400,7 @@ img {
 /* De fede overskrifter (Uddannelse: / Udbyder:) */
 .edu-carousel__label {
     font-size: 1.6rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--color-text-main);
     margin-bottom: 15px;
 }
@@ -423,6 +421,14 @@ img {
 .edu-carousel__bottom {
     background-color: var(--color-secondary);
     padding: 30px;
+}
+
+.treatment__image {
+    width: 100%;
+    aspect-ratio:1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 60px;
 }
 
 /* Footer */
