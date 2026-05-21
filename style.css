@@ -177,6 +177,21 @@ img {
     font-size: 1.5rem;
 }
 
+.profile-row {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px; /* Sikrer god luft mellem de to rækker */
+}
+
+.treatment__image {
+    width: 100%;
+    height: 100%;
+    max-height: 350px; /* Begrænser højden på mobil */
+    object-fit: cover; /* Sørger for billedet beskæres pænt, ikke mases */
+    border-radius: 10px; /* Valgfrit: Giver lidt blødere kanter */
+}
+
 /* Knap (General + Modifier) */
 .btn {
     display: inline-block;
@@ -969,6 +984,38 @@ img {
     .profile__text-box {
         width: 100%; /* Sørger for at boksen bliver strukket helt ud til kanten af sin kolonne */
         /* margin-top: -40px; (fra din mobile-first kode) sikrer at den stadig overlapper billedet */
+    }
+
+    .profile-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Deler rækken 50/50 */
+        align-items: stretch; /* Får billedet til at flugte med højen på teksten */
+        gap: 50px; /* Luft mellem billede og tekst */
+        margin-bottom: 100px;
+    }
+
+    /* Overskriver din gamle grid-kode for .info, så boksene 
+       stables ovenpå hinanden i højre side, i stedet for at ligge side-om-side */
+    .profile-row .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centrerer boksene lodret ved siden af billedet */
+        gap: 30px;
+        margin-bottom: 0; /* Fjerner evt. gammel bund-margin */
+    }
+
+    /* Gør billedet større på desktop */
+    .treatment__image {
+        max-height: 600px; 
+    }
+
+    /* ZIG-ZAG MAGIEN: Bytter rundt på højre/venstre når klassen --reverse er på */
+    .profile-row--reverse .treatment {
+        order: 2; /* Skubber billedet over til højre */
+    }
+    
+    .profile-row--reverse .info {
+        order: 1; /* Skubber teksten over til venstre */
     }
 
     .edu-carousel__item {
