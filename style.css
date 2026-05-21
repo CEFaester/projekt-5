@@ -23,8 +23,8 @@ body {
     background-image: repeating-linear-gradient(
         to bottom,
         var(--color-bg-light) 0px,        /* Starter med baggrundsfarven i toppen */
-        var(--color-secondary) 900px,     /* Fader glidende over til den sekundære farve ved 500px ned */
-        var(--color-bg-light) 1800px      /* Fader tilbage til baggrundsfarven ved 1000px ned */
+        var(--color-secondary) 1800px,     /* Fader glidende over til den sekundære farve ved 500px ned */
+        var(--color-bg-light) 3600px      /* Fader tilbage til baggrundsfarven ved 1000px ned */
     );
 }
 
@@ -191,8 +191,7 @@ img {
     background-color: var(--color-cta);
     color: var(--color-bg-light); /* Tekst på mørk/farvet baggrund */
     width: 100%; /* Gør knappen bred på mobil */
-    stroke: var(--color-bg-light);
-    stroke-width: 2px;
+    border: 2px solid var(--color-bg-light);
 }
 
 .info__box-cta {
@@ -932,6 +931,28 @@ img {
     /* Justering af venstre side (Tekst) */
     .hero {
         margin: 0; /* Fjerner mobil-margin, da grid'et nu styrer afstanden */
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Sørger for at teksten fylder hele højden af sin kolonne, så vi kan bruge justify-content */
+        padding-bottom: 60px;
+        
+    }
+
+    .hero__title {
+        font-size: 3rem; /* Større titel på desktop */
+    }
+
+    .hero__highlights {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .hero__highlight-item {
+        font-size: 1.5rem; /* Større tekst i highlights på desktop */
+    }
+
+    .btn--cta {
+        width: 240px; /* Knappen behøver ikke fylde 100% på desktop */
     }
 
     /* Justering af højre side (Billede og tekstboks) */
@@ -940,7 +961,7 @@ img {
     }
 
     .profile__image {
-        aspect-ratio: 3 / 4; /* Gør billedet højere (f.eks. 3 bred, 4 høj) */
+        aspect-ratio: 7 / 8; /* Gør billedet højere (f.eks. 3 bred, 4 høj) */
         width: 100%;
         /* object-fit: cover; sørger stadig for at motivet ikke bliver mast */
     }
