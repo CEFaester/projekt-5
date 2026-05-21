@@ -688,15 +688,16 @@ img {
 .booking-times {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 10px;
+    gap: 20px;
 }
 
 .booking-time-btn {
-    padding: 10px;
-    border: 1px solid var(--color-primary);
-    background: transparent;
-    border-radius: 5px;
+    border: none;
+    background-color: var(--color-bg-light);
+    border-radius: 10px;
     cursor: pointer;
+    height: 21px;
+    width: 67px;
 }
 
 .booking-time-btn:hover, .booking-time-btn--selected {
@@ -706,15 +707,15 @@ img {
 /* Accordion */
 .booking-accordion {
     margin-bottom: 10px;
-    border: 1px solid var(--color-secondary);
-    border-radius: 5px;
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
     overflow: hidden;
 }
 
 .booking-accordion__header {
     width: 100%;
     padding: 15px;
-    background-color: var(--color-bg-light);
+    background-color: var(--color-primary);
     border: none;
     text-align: left;
     font-weight: bold;
@@ -724,7 +725,7 @@ img {
 .booking-accordion__content {
     display: none; /* Skjult som standard */
     padding: 20px;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
 }
 
 .booking-accordion__content--active {
@@ -734,6 +735,17 @@ img {
 .booking-guest {
     text-align: center;
     margin-top: 30px;
+}
+
+.booking-auth-btn {
+    padding: 10px 20px;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
 }
 
 /* --- Spørgsmål Radio Knapper --- */
@@ -1014,9 +1026,7 @@ img {
 
     .booking-content {
         flex-grow: 1; 
-        
-        /* NYT: Giv højre boks sit eget udseende tilbage */
-        background-color: var(--color-bg-light);
+        background-color: var(--color-secondary);
         border: 2px solid var(--color-secondary);
         border-radius: 10px;
         padding: 40px;
@@ -1044,7 +1054,19 @@ img {
 
     .booking-progress__text {
         display: block; /* Vis teksten på desktop */
-        font-weight: bold;
+        font-family: "Sen", sans-serif;
+        font-weight: 500;
     }
+
+    .booking-auth-btn {
+    padding: 10px 20px;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    max-width: 200px;}
 
 }
