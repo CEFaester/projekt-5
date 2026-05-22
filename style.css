@@ -1003,7 +1003,18 @@ img {
     color:white;
 }
 
+/* Når denne klasse tilføjes via JS, viser vi menuen på mobilen */
+.header__nav.is-open {
+    display: block;
+    width: 100%;
+    order: 4; /* Lægger den helt i bunden under telefonnummeret */
+    margin-top: 15px;
+}
 
+/* VALGFRIT: Skift burgeren til et kryds eller giv den visuel feedback */
+.header__burger.is-open {
+    opacity: 0.7; /* Bare et simpelt eksempel på visuel feedback */
+}
 
 
 /* =========================================
