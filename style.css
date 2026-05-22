@@ -870,7 +870,11 @@ img {
 
     /* 2. Logo (Bliver automatisk i venstre side) */
     .header__logo {
-        order: 1;
+        order: 1; /* Sørger for at logoet ikke bliver mast på desktop */
+    }
+
+    .header__logo-img {
+        max-width: 250px; /* Gør logoet større på desktop */
     }
 
     /* 3. Telefonnummeret (Rykkes op ved siden af logoet, men helt til højre) */
