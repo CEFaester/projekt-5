@@ -177,6 +177,11 @@ img {
     font-size: 1.5rem;
 }
 
+.hero__cta {
+    display: inline-block; /* Sikrer at margin virker korrekt på et a-tag */
+    margin-top: 30px;      /* Juster dette tal indtil det ser perfekt ud! */
+}
+
 .profile-row {
     display: flex;
     flex-direction: column;
