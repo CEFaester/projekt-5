@@ -854,6 +854,49 @@ img {
 }
 
 
+/*  Accordion Styling */
+
+.accordion {
+  max-width: 600px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  background: #eee;
+}
+
+
+
+/* Content wrapper */
+.accordion-content {
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition: max-height 0.3s ease;
+
+  background: #f9f9f9;
+}
+
+
+
+/* Inner content */
+.accordion-content-inner {
+  padding: 1rem;
+}
+
+
+
 
 /* =========================================
    Media Queries (Desktop)
