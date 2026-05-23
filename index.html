@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <script src="burgermenu.js" defer></script>
+    <script src="reviews.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
@@ -71,17 +72,37 @@
 
         <!-- Anmeldelser -->
         <section class="reviews" id="reviews-carousel">
-            <div class="reviews__track">
-                <div class="reviews__item">
-                    <p class="reviews__text">"Vigtigst af alt, så har jeg opnået en større viden om mine muligheder og begrænsninger ud fra de fysiologiske udfordringer jeg døjer med. Hvilket for mig har lige så stor betydning, som at have færre smerter. Jeg rar altid følt mig mødt, hørt og forstået i forhold til mine somatiske smerter og evt. årsager bag."</p>
+                <div class="carousel" id="carousel">
+
+                <button class="carousel__button carousel__button--prev">‹</button>
+                <button class="carousel__button carousel__button--next">›</button>
+
+                <div class="carousel__viewport">
+                <div class="carousel__track">
+
+                        <div class="carousel__slide">
+                            <img class="carousel__image" src="pictures/reviews1.jpg" alt="Profil billede">
+                        </div>
+
+                        <div class="carousel__slide">
+                            <img class="carousel__image" src="pictures/reviews2.jpg" alt="Profil billede">
+                        </div>
+
+                        <div class="carousel__slide">
+                            <img class="carousel__image" src="pictures/reviews3.jpg" alt="Profil billede">
+                        </div>
+
+                        <div class="carousel__slide">
+                            <img class="carousel__image" src="pictures/reviews4.jpg" alt="Profil billede">
+                        </div>
+
+                        <div class="carousel__slide">
+                            <img class="carousel__image" src="pictures/reviews5.jpg" alt="Profil billede">
+                        </div>
+
                 </div>
-                <div class="reviews__item">
-                    <p class="reviews__text">"Jeg var bekymret for om det “bare” var det samme som jeg har prøvet andre steder uden den store effekt. Nicolai har en lidt andet tilgang end jeg tidligere har prøvet. Det har virkeligt været effektivt og en stor AHA oplevelse hvor meget jeg selv kan gøre for at afhjælpe mine smerter. Jeg vil specielt abefale Nicolai til andre som har prøvet "alt muligt andet" uden effekt"</p>
                 </div>
-                <div class="reviews__item">
-                    <p class="reviews__text">"Allerede efter én behandling ved Nicolai mærkede jeg en tydelig forskel og nu har jeg ikke længere hovedpine, men kan holde smerterne væk ved at få en behandling ca hver anden måned. Det er dejligt at lægge pillerne på hylden, men det er især dejligt at slippe for de daglige smerter."</p>
                 </div>
-            </div>
         </section>
 
         <!-- Store navigationsknapper med baggrundsbillede -->

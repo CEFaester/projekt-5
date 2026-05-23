@@ -1087,6 +1087,55 @@ img {
     max-width: 150px; /* Sørger for at stjernerne ikke bliver for voldsomme */
 }
 
+
+/* =========================
+   BASE = MOBILE FIRST
+========================= */
+
+.carousel {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__viewport {
+  overflow: hidden;
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.carousel__slide {
+  flex: 0 0 80%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.carousel__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  background: #eee;
+}
+/* =========================
+   BUTTONS (MOBILE DEFAULT = hidden)
+========================= */
+
+.carousel__button {
+  display: none;
+}
+
+
+
+
+
 /* =========================================
    Media Queries (Desktop)
    ========================================= */
@@ -1382,7 +1431,43 @@ img {
         grid-template-columns: repeat(3, 1fr); /* Deler automatisk op i 3 lige store kolonner */
         gap: 50px; /* God luft mellem kolonnerne i bredden */
     }
+      
 
+
+
+    /* =========================
+    BASE CAROUSEL
+    ========================= */
+
+    .carousel__slide {
+        flex: 0 0 33.333%;
+    }
+
+    .carousel__button {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0,0,0,0.6);
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 10;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel__button--prev {
+        left: 15px;
+    }
+
+    .carousel__button--next {
+        right: 15px;
+    }
 
 }
 
