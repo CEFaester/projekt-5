@@ -19,6 +19,7 @@ body {
     font-family: Verdana, sans-serif;
     color: var(--color-text-main);
     line-height: 1.5;
+    min-height: 100vh;
 
     background-image: repeating-linear-gradient(
         to bottom,
@@ -1014,52 +1015,37 @@ img {
 }
 
 /* =========================================
-   Footer Basis (Mobil-visning)
+   Footer Basis (Mørk boks med luft)
    ========================================= */
 .footer {
-    background-color: var(--color-bg-light); /* Eller den mørke farve du ønsker */
-    padding: 60px 0;
-    border-top: 2px solid var(--color-secondary); /* En flot streg til at adskille footeren fra resten af siden */
+    /* 1. Farverne */
+    background-color: var(--color-text-main); /* Mørk baggrund */
+    color: var(--color-bg-light); /* Lys tekst på mørk baggrund */
+    width: 100%;
+    margin-top: 40px;;
+    padding: 40px 20px; 
 }
 
+/* Sørger for at din footer__inner og kolonner stadig opfører sig rigtigt */
 .footer__inner {
-    display: flex;
+    display: flex; 
     flex-direction: column;
-    gap: 40px; /* Luft mellem de tre kolonner når de er stablet ovenpå hinanden */
+    margin: 20px;
+    gap: 40px; 
 }
 
-.footer__col {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Luft mellem overskrift og teksten */
+/* Gør dine links (som Cookiepolitik) lyse i footeren */
+.footer__text a,
+.trustpilot-link {
+    color: var(--color-bg-light);
 }
 
-.footer__title {
-    font-size: 1.2rem;
-    margin: 0;
+/* Hvis Trustpilot-teksten også skal være lys */
+.trustpilot-text {
+    color: var(--color-bg-light);
 }
 
-.footer__text {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    line-height: 1.8; /* Gør listerne lidt nemmere at læse */
-}
-
-.footer__note {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #555;
-}
-
-/* Sociale medier ikoner */
-.footer__socials {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px; /* Skubber Trustpilot lidt ned under ikonerne */
-}
-
+/* Magisk trick til sociale medier: Vender sorte ikoner til hvide */
 .footer__logo {
     width: 32px;
     height: 32px;
@@ -1067,20 +1053,12 @@ img {
 }
 
 .footer__logo:hover {
-    transform: translateY(-3px); /* Lille hover-effekt på ikonerne */
+    transform: translateY(-3px); 
 }
 
 /* Trustpilot Prototype Styling */
 .footer__trustpilot {
     margin-top: 10px;
-}
-
-.trustpilot-link {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-decoration: none;
-    color: var(--color-text-main);
 }
 
 .trustpilot-img {
