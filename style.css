@@ -450,14 +450,6 @@ img {
     margin-bottom: 60px;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--color-text-main);
-    color: var(--color-bg-light);
-    text-align: center;
-    padding: 30px 20px;
-}
-
 /* =========================================
    Symptomer & Årsager (Conditions)
    ========================================= */
@@ -1021,6 +1013,79 @@ img {
     opacity: 0.7; /* Bare et simpelt eksempel på visuel feedback */
 }
 
+/* =========================================
+   Footer Basis (Mobil-visning)
+   ========================================= */
+.footer {
+    background-color: var(--color-bg-light); /* Eller den mørke farve du ønsker */
+    padding: 60px 0;
+    border-top: 2px solid var(--color-secondary); /* En flot streg til at adskille footeren fra resten af siden */
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Luft mellem de tre kolonner når de er stablet ovenpå hinanden */
+}
+
+.footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Luft mellem overskrift og teksten */
+}
+
+.footer__title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.footer__text {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.8; /* Gør listerne lidt nemmere at læse */
+}
+
+.footer__note {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
+}
+
+/* Sociale medier ikoner */
+.footer__socials {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px; /* Skubber Trustpilot lidt ned under ikonerne */
+}
+
+.footer__logo {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.2s ease;
+}
+
+.footer__logo:hover {
+    transform: translateY(-3px); /* Lille hover-effekt på ikonerne */
+}
+
+/* Trustpilot Prototype Styling */
+.footer__trustpilot {
+    margin-top: 10px;
+}
+
+.trustpilot-link {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--color-text-main);
+}
+
+.trustpilot-img {
+    max-width: 150px; /* Sørger for at stjernerne ikke bliver for voldsomme */
+}
 
 /* =========================================
    Media Queries (Desktop)
@@ -1310,6 +1375,12 @@ img {
         width: 50%;
         max-width: 1100px;
         margin: auto;
+    }
+
+    .footer__inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Deler automatisk op i 3 lige store kolonner */
+        gap: 50px; /* God luft mellem kolonnerne i bredden */
     }
 
 
