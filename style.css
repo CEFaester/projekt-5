@@ -16,10 +16,13 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Verdana, sans-serif;
     color: var(--color-text-main);
     line-height: 1.5;
     min-height: 100vh;
+    margin: 0;
 
     background-image: repeating-linear-gradient(
         to bottom,
@@ -46,6 +49,7 @@ img {
    ========================================= */
 /* Giver de 20px padding på alt indhold undtagen header/footer */
 .main-content {
+    flex-grow: 1; /* Sørger for at main-content fylder al den plads den kan, og dermed skubber footer ned i bunden */
     padding: 0 20px;
     max-width: 1000px; /* Til desktop */
     margin: 0 auto;    /* Centrerer indhold på store skærme */
