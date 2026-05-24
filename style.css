@@ -1012,7 +1012,10 @@ img {
 }
 
 .accordion-title-text {
-    color:white;
+    background-color: rgb(from var(--color-text-main) r g b / 60%);
+    color: var(--color-bg-light);
+    padding: 5px 15px;
+    border-radius: 10px;
 }
 
 /* Når denne klasse tilføjes via JS, viser vi menuen på mobilen */
@@ -1059,11 +1062,19 @@ img {
     color: var(--color-bg-light);
 }
 
-/* Magisk trick til sociale medier: Vender sorte ikoner til hvide */
+/* Kassen der holder de sociale medier */
+.footer__socials {
+    display: flex;
+    flex-direction: row; /* Tvinger dem til at ligge vandret (side-om-side) */
+    gap: 20px; /* Giver lidt god luft mellem logoerne */
+    margin: 20px 0 20px 0; /* Sikrer at der er luft ned til Trustpilot */
+}
+
+/* For en sikkerheds skyld holder vi lige størrelsen på ikonerne nede */
 .footer__logo {
     width: 32px;
     height: 32px;
-    transition: transform 0.2s ease;
+    filter: invert(1); /* Gør dem hvide, hvis de er sorte som standard */
 }
 
 .footer__logo:hover {
