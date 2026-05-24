@@ -205,17 +205,19 @@ img {
 /* Knap (General + Modifier) */
 .btn {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 5px 10px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 40px;
     text-align: center;
+    font-size: 1.5rem;
+    font-family: "Sen", sans-serif;
 }
 
 .btn--cta {
     background-color: var(--color-cta);
     color: var(--color-bg-light); /* Tekst på mørk/farvet baggrund */
-    width: 100%; /* Gør knappen bred på mobil */
+    width: 216px;
     border: 2px solid var(--color-bg-light);
 }
 
@@ -228,6 +230,16 @@ img {
     /* Din ønskede space (luft) rundt om knappen: */
     margin-top: 25px;    /* Skubber knappen ned fra teksten over den */
     margin-bottom: 5px;  /* Lidt ekstra luft i bunden, udover boksens egen padding */
+}
+
+.btn--treatment {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Profil Sektion (Overlappende boks) */
@@ -1231,6 +1243,13 @@ img {
     .btn--cta {
         width: 240px; /* Knappen behøver ikke fylde 100% på desktop */
     }
+
+    .btn--treatment {
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 200px;
+    padding: 5px 5px;
+}
 
     /* Justering af højre side (Billede og tekstboks) */
     .profile {
