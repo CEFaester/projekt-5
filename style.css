@@ -544,7 +544,7 @@ h4 { font-size: 1.2rem; }
 .accordion-item {
     overflow: hidden;
     border-radius: 10px;
-    background-color: var(--color-bg-light);
+    background-color: var(--color-primary);
 }
 
 .accordion-header {
@@ -573,19 +573,33 @@ h4 { font-size: 1.2rem; }
 }
 
 .accordion-title {
-    color: var(--color-bg-light);
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px; /* NYT: Sørger for at kassen aldrig kan blive bredere end billedet */
     font-weight: bold;
     z-index: 2;
+    text-align: left;
 }
 
-.accordion-title-text {
+.accordion-title h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 0; 
+    
+    /* Din gennemsigtige farve */
     background-color: rgb(from var(--color-text-main) r g b / 60%);
     color: var(--color-bg-light);
-    padding: 5px 15px;
+    
+    /* MAGIEN: Tvinger baggrunden til at kramme teksten stramt per linje */
+    display: inline; 
+    
+    padding: 5px 15px; /* Giver god luft i enderne af ordene */
     border-radius: 10px;
+    line-height: 1.6; /* Giver plads til, at baggrundskasserne ikke lapper over hinanden på to linjer */
+    
+    /* EKSTRA MAGI: Sørger for at runde hjørner og padding tegnes flot på BEGGE linjer, hvis titlen knækker */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .accordion-content {
