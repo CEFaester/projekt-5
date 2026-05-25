@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     
     const burgerBtn = document.querySelector('.header__burger');
     const navMenu = document.querySelector('.header__nav');
 
-    // --- BURGER KLIK (som før) ---
-    burgerBtn.addEventListener('click', () => {
+    // --- BURGER KLIK ---
+    burgerBtn.addEventListener('click', function() {
         navMenu.classList.toggle('is-open');
         burgerBtn.classList.toggle('is-open');
 
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuLinksArray = Array.from(document.querySelectorAll('.header__menu-link'));
 
     // 2. Vi bruger et loop (forEach) til at køre igennem hvert enkelt link i vores array
-    menuLinksArray.forEach((link) => {
+    menuLinksArray.forEach(function(link) {
         
         // 3. For HVERT link i loopet, lytter vi efter et klik
-        link.addEventListener('click', () => {
+        link.addEventListener('click', function() {
             // Luk menuen når der klikkes
             navMenu.classList.remove('is-open');
             burgerBtn.classList.remove('is-open');
