@@ -124,6 +124,7 @@ h4 { font-size: 1.2rem; }
     gap: 5px;
     cursor: pointer;
     order: 2; 
+    transition: transform 0.3s ease;
 }
 
 .header__burger-line {
@@ -131,15 +132,60 @@ h4 { font-size: 1.2rem; }
     height: 3px;
     background-color: var(--color-text-main);
 }
-
 .header__nav.is-open {
     display: block;
     width: 100%;
-    order: 4; 
-    margin-top: 15px;
+    order: 4; /* Sørger for, at den falder under logo og tlf */
+    margin-top: 20px;
+    background-color: var(--color-bg-light); /* Matcher headerens baggrund */
+    border-top: 1px solid var(--color-secondary); /* En fin diskret skillelinje */
+    padding-top: 10px;
+}
+
+.header__nav.is-open .header__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrerer teksten på mobilen */
+    gap: 15px; /* Afstand mellem hvert menupunkt */
+    list-style: none;
+    padding: 15px 0;
+}
+
+.header__nav.is-open .header__menu-link {
+    font-family: "Sen", sans-serif; /* Matcher dine overskrifter og knapper */
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem; /* Gør dem nemme at ramme med en finger */
+    transition: color 0.2s ease;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* Giver feedback, hvis man holder fingeren nede/hover på mobilen */
+.header__nav.is-open .header__menu-link:active,
+.header__nav.is-open .header__menu-link:hover {
+    color: var(--color-cta); /* Skifter til din orange CTA-farve */
 }
 
 .header__burger.is-open { opacity: 0.7; }
+
+/* Vi bruger css-transitions til at lave de 3 linjer om til et flot kryds */
+.header__burger.is-open .header__burger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.header__burger.is-open .header__burger-line:nth-child(2) {
+    opacity: 0; /* Skjuler den midterste linje */
+    transition: opacity 0.2s ease;
+}
+
+.header__burger.is-open .header__burger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    transition: transform 0.3s ease;
+}
 
 /* =========================================
    Hero Sektion
