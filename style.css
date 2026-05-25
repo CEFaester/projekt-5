@@ -441,7 +441,6 @@ h4 { font-size: 1.2rem; }
 }
 
 .services-nav__card {
-    height: 188px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -450,6 +449,7 @@ h4 { font-size: 1.2rem; }
     border-radius: 10px;
     position: relative; 
     overflow: hidden; 
+    padding: 40px;
 }
 
 .services-nav__overlay {
@@ -472,10 +472,14 @@ h4 { font-size: 1.2rem; }
 }
 
 .services-nav__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
     color: var(--color-bg-light);
     position: relative;
     z-index: 2; 
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 /* =========================================
