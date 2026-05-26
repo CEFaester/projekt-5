@@ -467,6 +467,7 @@ h4 { font-size: 1.2rem; }
     width: 100%;
     height: 140%; 
     object-fit: cover;
+    object-position: center;
     z-index: 0; 
     will-change: transform; 
 }
@@ -1044,7 +1045,7 @@ h4 { font-size: 1.2rem; }
     }
     
     .hero--treatment__image { 
-        object-position: center 22%; 
+        object-position: center 40%; 
     }
 
     /* Profil elementer */
@@ -1178,4 +1179,8 @@ h4 { font-size: 1.2rem; }
     
     .carousel__button--prev { left: 15px; }
     .carousel__button--next { right: 15px; }
+
+    .accordion-header {
+    height: 10vh;
+    }
 }
