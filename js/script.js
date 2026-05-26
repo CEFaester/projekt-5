@@ -56,4 +56,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* =========================================
+       3. UDDANNELSES-KARRUSEL (Endeløst Loop & Pause)
+       ========================================= */
+    const eduTrack = document.querySelector('.edu-carousel__track');
+
+    if (eduTrack) {
+        // 1. Klon alle kasserne, så vi får et dobbelt sæt til at skabe det uendelige loop
+        const items = Array.from(eduTrack.children);
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true'); // Skjuler klonen for blinde, så de ikke læser den 2 gange
+            eduTrack.appendChild(clone);
+        });
+
+        // 2. Pause-funktion (stopper animationen i 5 sekunder ved tryk)
+        let pauseTimeout;
+        
+        eduTrack.addEventListener('click', () => {
+            // Frys animationen på stedet
+            eduTrack.style.animationPlayState = 'paused';
+            
+            // Nulstil uret, hvis brugeren trykker flere gange på kassen
+            clearTimeout(pauseTimeout);
+            
+            // Start karrusellen igen efter 5 sekunder (5000 millisekunder)
+            pauseTimeout = setTimeout(() => {
+                eduTrack.style.animationPlayState = ''; // Rydder pausen, så den kører videre
+            }, 5000);
+        });
+    }
+
 });

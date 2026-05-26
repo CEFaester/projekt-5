@@ -386,28 +386,29 @@ h4 { font-size: 1.2rem; }
 .edu-carousel {
     margin-left: -20px;
     margin-right: -20px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
+    overflow: hidden; 
 }
-
-.edu-carousel::-webkit-scrollbar { display: none; }
 
 .edu-carousel__track {
     display: flex;
+    align-items: flex-start;
     gap: 20px;
-    padding: 20px 10vw; 
+    padding: 20px 0; 
+    width: max-content; 
+    animation: scroll-carousel 30s linear infinite; 
+}
+.edu-carousel__track:hover {
+    animation-play-state: paused;
 }
 
 .edu-carousel__item {
-    flex: 0 0 70vw; 
+    width: 70vw; 
     background-color: var(--color-primary);
     border-radius: 10px; 
     display: flex;
     flex-direction: column;
-    min-height: 350px; 
-    scroll-snap-align: center;
     overflow: hidden;
+    height: auto;
 }
 
 .edu-carousel__label {
@@ -430,6 +431,19 @@ h4 { font-size: 1.2rem; }
     background-color: var(--color-secondary);
     padding: 30px;
 }
+
+/* =========================================
+   Selve Loop Animationen (Matematisk magi)
+   ========================================= */
+@keyframes scroll-carousel {
+    0% { transform: translateX(0); }
+    /* Formel: -50% flytter sporet præcis halvdelen af dets længde. 
+       Vi trækker yderligere 10px fra (hvilket er præcis halvdelen af dit 'gap: 20px'), 
+       for at sy slutningen og starten af dit loop 100% usynligt sammen! */
+    100% { transform: translateX(calc(-50% - 10px)); } 
+}
+
+
 
 /* =========================================
    Services Navigation (Cards med Parallax)
