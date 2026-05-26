@@ -52,9 +52,8 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: 2.2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.4rem; }
-h4 { font-size: 1.2rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.2rem; }
 
 /* =========================================
    Global Sektions-Afstand (Skudsikkert Flow)
@@ -116,7 +115,11 @@ h4 { font-size: 1.2rem; }
     box-sizing: border-box;
 }
 
-.header__logo-img { max-width: 200px; }
+.header__logo { 
+    margin-bottom: -40px
+}
+
+.header__logo-img { width: clamp(10vw, 80%, 20vw); }
 .header__nav { display: none; }
 
 .header__contact {
@@ -360,7 +363,6 @@ h4 { font-size: 1.2rem; }
     margin-top: 40px;
 }
 
-.info__box--dark { background-color: var(--color-primary); }
 .info__box-title { margin-bottom: 10px; }
 .info__box-list { padding-left: 20px; list-style: disc; }
 
@@ -556,6 +558,8 @@ h4 { font-size: 1.2rem; }
     position: relative;
     z-index: 1;
 }
+
+.conditions__box--dark { background-color: var(--color-primary); }
 
 .conditions__box.conditions__box--active { display: block; }
 
@@ -979,9 +983,8 @@ h4 { font-size: 1.2rem; }
     
     /* Typografi (Desktop Størrelser) */
     h1 { font-size: 3.2rem; }
-    h2 { font-size: 2.6rem; }
-    h3 { font-size: 1.8rem; }
-    h4 { font-size: 1.4rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
     
 /* =========================================
        Desktop Sektions-Afstand
