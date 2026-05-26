@@ -105,7 +105,7 @@ h4 { font-size: 1.2rem; }
     box-sizing: border-box;
 }
 
-.header__logo-img { max-width: 150px; }
+.header__logo-img { max-width: 200px; }
 .header__nav { display: none; }
 
 .header__contact {
@@ -461,15 +461,18 @@ h4 { font-size: 1.2rem; }
 }
 
 .services-nav__image {
-    position: absolute;
-    top: -20%; 
-    left: 0;
     width: 100%;
-    height: 140%; 
+    
+    /* Gør billedet 30% højere end kassen (giver 15% i top og bund) */
+    height: 130%; 
+    
+    /* Trækker de første 15% op, så billedet sidder helt centreret i kassen som standard */
+    top: -15%;    
+    
     object-fit: cover;
-    object-position: center;
-    z-index: 0; 
-    will-change: transform; 
+    position: absolute;
+    left: 0;
+    z-index: 1;
 }
 
 .services-nav__title {
@@ -567,10 +570,13 @@ h4 { font-size: 1.2rem; }
 }
 
 .accordion-image {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     display: block;
+    width: 100%;
+    height: 100%;
+
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .accordion-title {
@@ -960,13 +966,17 @@ h4 { font-size: 1.2rem; }
         flex-wrap: wrap; 
         padding: 20px 40px;
     }
+
     .header__burger { display: none; }
     .header__logo { order: 1; }
+
+    .header__logo-img { max-width: 300px; }
     
     .header__contact {
         order: 2;
         width: auto;
         margin-top: 0;
+        font-size: 1.2rem;
     }
     
     .header__nav {
@@ -987,7 +997,7 @@ h4 { font-size: 1.2rem; }
         color: var(--color-text-main);
         text-decoration: none;
         font-weight: bold;
-        font-size: 0.95rem; 
+        font-size: 1.2rem; 
         transition: color 0.2s ease;
     }
     

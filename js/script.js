@@ -1,23 +1,37 @@
 // Vi venter én gang på, at hele HTML'en er indlæst
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* =========================================
-       1. PARALLAX EFFEKT (Til knapperne)
+/* =========================================
+       1. PARALLAX EFFEKT (Skudsikker og matematisk bunden)
        ========================================= */
     const parallaxImages = document.querySelectorAll('.services-nav__image');
 
-    // Sørger for at parallax-koden kun kører, hvis billederne faktisk findes på siden
     if (parallaxImages.length > 0) {
-        window.addEventListener('scroll', () => {
+        
+        function runParallax() {
             parallaxImages.forEach(image => {
-                const cardRect = image.parentElement.getBoundingClientRect();
+                const card = image.parentElement;
+                const cardRect = card.getBoundingClientRect();
                 
+                // Kør kun matematikken, hvis kortet faktisk kan ses på skærmen
                 if (cardRect.bottom < 0 || cardRect.top > window.innerHeight) return; 
 
-                const yPos = (cardRect.top * 0.05);
-                image.style.transform = `translateY(${yPos}px)`;
+                // 1. Udregner kortets "rejse" over skærmen som et kommatal mellem 0 og 1.
+                // (0 = kortet er i bunden af skærmen, 1 = kortet er i toppen)
+                const totalDistance = window.innerHeight + cardRect.height;
+                const distanceScrolled = window.innerHeight - cardRect.top;
+                const progress = distanceScrolled / totalDistance;
+
+                // 2. Mapper rejsen om til procenter. 
+                const yPos = (progress - 0.5) * 30; 
+                
+                // Flyt billedet i procenter i stedet for pixels
+                image.style.transform = `translateY(${yPos}%)`;
             });
-        });
+        }
+
+        window.addEventListener('scroll', runParallax);
+        runParallax();
     }
 
     /* =========================================
