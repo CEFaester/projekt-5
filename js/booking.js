@@ -152,6 +152,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* --- 9. HÅNDTER VALG AF BEHANDLING (TILFØJ SELECTED) --- */
+    // Fordi behandlingskortene bliver slettet og skabt på ny når man trykker ja/nej, 
+    // lytter vi på selve 'treatmentList' kassen i stedet for de enkelte kort.
+    treatmentList.addEventListener('click', (e) => {
+        // Tjek om det, vi klikkede på, er et behandlingskort (eller tekst indeni det)
+        const clickedCard = e.target.closest('.treatment-card');
+        
+        if (clickedCard) {
+            // 1. Find alle kort og fjern 'selected' klassen fra dem
+            const allCards = treatmentList.querySelectorAll('.treatment-card');
+            allCards.forEach(card => card.classList.remove('selected'));
+            
+            // 2. Tilføj 'selected' til det specifikke kort, vi lige har klikket på
+            clickedCard.classList.add('selected');
+        }
+    });
+
+
+    /* --- 10. HÅNDTER VALG AF TIDSPUNKT (TILFØJ SELECTED) --- */
+    const timeButtons = document.querySelectorAll('.booking-time-btn');
+    
+    timeButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // 1. Fjern 'selected' fra alle andre tids-knapper
+            timeButtons.forEach(b => b.classList.remove('selected'));
+            
+            // 2. Tilføj 'selected' til den knap, vi lige har klikket på
+            e.currentTarget.classList.add('selected');
+        });
+    });
+
     // Kør funktionen én gang når siden loader for at sætte det hele rigtigt op fra start
     updateUI();
 });

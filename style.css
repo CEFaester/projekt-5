@@ -65,7 +65,7 @@ h3 { font-size: 1.2rem; }
 
 /* 2. Alle kasser, der kommer direkte efter en anden kasse, får 60px luft i toppen */
 .main-content > * + * {
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 /* 3. --- UNDTAGELSER (Ting der hører uløseligt sammen) --- */
@@ -526,7 +526,8 @@ h3 { font-size: 1.2rem; }
     background-color: var(--color-text-main);
     border-radius: 50px; 
     padding: 5px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: -20px;
     position: relative;
     z-index: 10;
 }
@@ -676,6 +677,7 @@ h3 { font-size: 1.2rem; }
     border-radius: 0;
     padding: 0 0 30px 0;
     margin-bottom: 30px;
+    margin-top: 60px;
     width: 100%;
 }
 
@@ -742,6 +744,13 @@ h3 { font-size: 1.2rem; }
 .booking-step { display: none; }
 .booking-step--active { display: block; }
 
+.booking-finish {
+    display: flex;
+    justify-content: center; /* Centrerer knappen vandret */
+    margin-top: 40px; /* Giver god luft op til teksten over den */
+    margin-bottom: 20px;
+}
+
 .treatment-card {
     border: 2px solid var(--color-primary);
     background-color: var(--color-bg-light);
@@ -773,9 +782,11 @@ h3 { font-size: 1.2rem; }
 }
 
 .booking-times {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Lader knapperne falde ned på næste linje */
+    gap: 12px; /* Skaber en fast, tæt og ensartet luft mellem alle knapper */
+    justify-content: flex-start; /* Pakker dem fra venstre, så vi undgår store hvide huller */
+    margin-top: 15px; 
 }
 
 .booking-time-btn {
@@ -783,11 +794,28 @@ h3 { font-size: 1.2rem; }
     background-color: var(--color-bg-light);
     border-radius: 10px;
     cursor: pointer;
-    height: 21px;
-    width: 67px;
+    font-size: 1rem;
+    padding: 10px 15px;
 }
 
-.booking-time-btn:hover, .booking-time-btn--selected { background-color: var(--color-primary); }
+/* =========================================
+   Valgte (Selected) tilstande til prototypen
+   ========================================= */
+
+/* Behandlingskort */
+.treatment-card:hover,
+.treatment-card.selected {
+    border-color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+/* Tidspunkter */
+.booking-time-btn:hover,
+.booking-time-btn.selected {
+    background-color: var(--color-primary);
+    color: var(--color-text-main); 
+    /* Tilføj evt. hvid tekst her, hvis det er det, der sker på hover */
+}
 
 .booking-accordion {
     margin-bottom: 10px;
@@ -823,6 +851,7 @@ h3 { font-size: 1.2rem; }
     border-radius: 10px;
     cursor: pointer;
     width: 100%;
+    font-size: 1rem;
 }
 
 .booking-question__radios {
@@ -877,12 +906,13 @@ h3 { font-size: 1.2rem; }
 
 .booking-nav__btn {
     padding: 10px 20px;
-    width: 100px;
+    width: auto;
     background-color: var(--color-cta);
     color: var(--color-bg-light);
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .booking-nav__btn--prev {
