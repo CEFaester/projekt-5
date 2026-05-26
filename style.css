@@ -57,20 +57,31 @@ h3 { font-size: 1.4rem; }
 h4 { font-size: 1.2rem; }
 
 /* =========================================
-   Global Spacing (Afstand mellem sektioner)
+   Global Sektions-Afstand (Skudsikkert Flow)
    ========================================= */
-/* Fælles standard-afstand i bunden af alle store sektioner på mobil (60px) */
-.hero, 
-.profile, 
-.profile-row, 
-.reviews, 
-.services-nav, 
-.info, 
-.edu-carousel, 
-.conditions, 
-.booking-layout {
-    margin-bottom: 60px;
+/* 1. Vi fjerner al gammel bund-luft for at forhindre "dobbelt margin" overalt */
+.main-content > * {
+    margin-bottom: 0 !important;
 }
+
+/* 2. Alle kasser, der kommer direkte efter en anden kasse, får 60px luft i toppen */
+.main-content > * + * {
+    margin-top: 60px;
+}
+
+/* 3. --- UNDTAGELSER (Ting der hører uløseligt sammen) --- */
+.main-content > .btn {
+    margin-top: 20px; /* Knapper skal ligge tættere på deres titel */
+}
+
+.main-content > .conditions__box {
+    margin-top: -40px; /* Boksen skal lappe op under toggle-knappen på mobil */
+}
+
+.main-content > .conditions__box + .conditions__box {
+    margin-top: 30px; /* Sørger for, at to bokse i træk ikke overlapper hinanden */
+}
+
 
 /* =========================================
    Layout & Container (Mobile First)
@@ -237,13 +248,13 @@ h4 { font-size: 1.2rem; }
     width: calc(100% - 40px);
     background-color: rgb(from var(--color-primary) r g b / 80%);
     border-radius: 10px;
-    padding: 20px; 
+    padding: 10px;
     z-index: 2; 
 }
 
 .hero--treatment__title {
     color: var(--color-text-main);
-    margin: 0;
+    margin-bottom: -5px;
 }
 
 /* =========================================
@@ -346,6 +357,7 @@ h4 { font-size: 1.2rem; }
     background-color: var(--color-bg-light);
     padding: 20px;
     border-radius: 10px;
+    margin-top: 40px;
 }
 
 .info__box--dark { background-color: var(--color-primary); }
@@ -597,32 +609,32 @@ h4 { font-size: 1.2rem; }
     will-change: transform;
 }
 
+/* Den ydre kasse styrer stadig bare placeringen over billedet */
 .accordion-title {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    right: 10px; /* NYT: Sørger for at kassen aldrig kan blive bredere end billedet */
+    right: 10px; 
     font-weight: bold;
     z-index: 2;
     text-align: left;
 }
 
-.accordion-title h2 {
+/* Vi flytter vores marker-highlight magi direkte over på tekst-span'en */
+.accordion-title-text {
     font-size: 1.5rem; 
-    margin-bottom: 0; 
     
-    /* Din gennemsigtige farve */
     background-color: rgb(from var(--color-text-main) r g b / 60%);
     color: var(--color-bg-light);
     
-    /* MAGIEN: Tvinger baggrunden til at kramme teksten stramt per linje */
+    /* Gør at baggrunden smyger sig stramt om teksten pr. linje */
     display: inline; 
     
-    padding: 5px 15px; /* Giver god luft i enderne af ordene */
+    padding: 5px 15px; 
     border-radius: 10px;
-    line-height: 1.6; /* Giver plads til, at baggrundskasserne ikke lapper over hinanden på to linjer */
+    line-height: 1.6; 
     
-    /* EKSTRA MAGI: Sørger for at runde hjørner og padding tegnes flot på BEGGE linjer, hvis titlen knækker */
+    /* Sørger for afrundede hjørner på begge linjer, hvis titlen knækker */
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
@@ -923,6 +935,11 @@ h4 { font-size: 1.2rem; }
     padding: 40px 20px; 
 }
 
+.footer__title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}   
+
 .footer__inner {
     display: flex; 
     flex-direction: column;
@@ -965,18 +982,28 @@ h4 { font-size: 1.2rem; }
     h2 { font-size: 2.6rem; }
     h3 { font-size: 1.8rem; }
     h4 { font-size: 1.4rem; }
-
-    /* Fælles standard-afstand i bunden af store sektioner på desktop (100px) */
-    .hero, 
-    .profile, 
-    .profile-row, 
-    .reviews, 
-    .services-nav, 
-    .info, 
-    .edu-carousel, 
-    .conditions, 
-    .booking-layout {
-        margin-bottom: 100px;
+    
+/* =========================================
+       Desktop Sektions-Afstand
+       ========================================= */
+    .main-content > * + * {
+        margin-top: 60px; /* Generelt mere luft mellem sektioner på store skærme */
+    }
+    
+    .main-content > .btn {
+        margin-top: 30px;
+    }
+    
+    /* Fikser præcis din fejl med "Symptomer & Årsager": 
+       Da toggle-knappen forsvinder på computer, tvinger vi den FØRSTE 
+       boks til at få den store 80px afstand op til karrusellen. */
+    .main-content > .conditions__toggle-switch + .conditions__box {
+        margin-top: 80px; 
+    }
+    
+    /* Den ANDEN boks lægger sig pænt og tættere (40px) under den første boks */
+    .main-content > .conditions__box + .conditions__box {
+        margin-top: 40px; 
     }
 
     /* Header */
