@@ -88,3 +88,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+/* =========================================
+   4. DYNAMISK BAGGRUNDSTEKST (Lodret Watermark)
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('watermark-container')) return;
+
+    const container = document.createElement('div');
+    container.id = 'watermark-container';
+    
+    Object.assign(container.style, {
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        width: '100%',
+        // Tvinger lærredet til at være lige så højt som hele siden (i stedet for bare skærmen)
+        height: document.body.scrollHeight + 'px', 
+        overflow: 'hidden', 
+        zIndex: '-1',       
+        pointerEvents: 'none' 
+    });
+    document.body.appendChild(container);
+
+    const style = document.createElement('style');
+    style.textContent = `
+        .bg-watermark {
+            position: absolute;
+            font-family: "Sen", sans-serif;
+            font-size: clamp(6rem, 10vw, 15rem); 
+            font-weight: 800;
+            color: var(--color-bg-light); 
+            white-space: nowrap;
+            line-height: 0.8; 
+            writing-mode: vertical-rl; 
+        }
+        .bg-watermark.left {
+            left: -2%; 
+            transform: rotate(0deg); 
+        }
+        .bg-watermark.right {
+            right: -2%;
+            transform: rotate(180deg) 
+        }
+    `;
+    document.head.appendChild(style);
+
+    function drawWatermarks() {
+        // Hver gang vi tegner, sikrer vi os, at lærredet har den korrekte højde (hvis siden er blevet længere)
+        const pageHeight = document.body.scrollHeight;
+        container.style.height = pageHeight + 'px';
+        
+        container.innerHTML = ''; 
+        
+        const startY = 400; 
+        const step = 1400;  
+        
+        let isLeft = true; 
+
+        for (let y = startY; y < pageHeight - 200; y += step) {
+            const textEl = document.createElement('div');
+            
+            // MAGIEN: Vi bruger &nbsp; som superlim mellem ordene.
+            // Nu kan browseren umuligt knække ordet over, og det vil i stedet blot 
+            // glide flot ud over bunden af siden, hvor det bliver skåret over pixel for pixel.
+            textEl.innerHTML = 'GROCOTT&nbsp;FYSIOTERAPI';
+            textEl.classList.add('bg-watermark');
+            
+            if (isLeft) {
+                textEl.classList.add('left');
+            } else {
+                textEl.classList.add('right');
+            }
+            
+            textEl.style.top = `${y}px`;
+            container.appendChild(textEl);
+            
+            isLeft = !isLeft; 
+        }
+    }
+
+    setTimeout(drawWatermarks, 100);
+
+    const resizeObserver = new ResizeObserver(() => {
+        drawWatermarks();
+    });
+    resizeObserver.observe(document.body);
+});
