@@ -1,3 +1,5 @@
+// Kode er genereret med Gemini AI og omskrevet, rettet og tilføjet til efterfølgende for at følge vores mockups bedre
+
 // Vi venter én gang på, at hele HTML'en er indlæst
 document.addEventListener('DOMContentLoaded', () => {
 
