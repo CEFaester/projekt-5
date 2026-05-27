@@ -418,7 +418,7 @@ h3 { font-size: 1.2rem; }
     gap: 20px;
     padding: 20px 0; 
     width: max-content; 
-    animation: scroll-carousel 30s linear infinite; 
+    animation: scroll-carousel 45s linear infinite; 
 }
 .edu-carousel__track:hover {
     animation-play-state: paused;
