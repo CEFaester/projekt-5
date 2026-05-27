@@ -119,10 +119,11 @@ h3 { font-size: 1.2rem; }
 }
 
 .header__logo { 
-    margin-bottom: -40px
+    margin-top: -10px;
+    margin-bottom: -20px
 }
 
-.header__logo-img { width: clamp(10vw, 80%, 20vw); }
+.header__logo-img { max-width: 200px; }
 .header__nav { display: none; }
 
 .header__contact {
@@ -147,6 +148,7 @@ h3 { font-size: 1.2rem; }
     cursor: pointer;
     order: 2; 
     transition: transform 0.3s ease;
+    margin-top: 20px;
 }
 
 .header__burger-line {

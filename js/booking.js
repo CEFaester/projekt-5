@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. DATA: VORES BEHANDLINGER --- */
-    // Vi gemmer behandlingerne i et objekt opdelt i 'yes' (Første gang) og 'no' (Ikke første gang)
+    // Behandlingerne bliver gemt i et objekt og opdelt i 'yes' (Første gang) og 'no' (Ikke første gang)
     const treatmentsData = {
         yes: [
             { id: 1, title: 'Kort første konsultation', time: '45 min', price: '500 kr.' },
