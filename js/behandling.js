@@ -1,6 +1,10 @@
 /* Denne kode er genereret med hjælp fra ChatGPT, tjek /aiprompts/mads-aiprompts.pdf */ 
 
-const headers = document.querySelectorAll(".accordion-header");
+const headers = Array.from(
+    document.querySelectorAll(".accordion-header")
+);
+
+
 
 headers.forEach(function(header) {
 
@@ -33,7 +37,7 @@ headers.forEach(function(header) {
 
 
 
-        /* Åbn kun hvis den var lukket */
+        /* Åbn kun hvis lukket */
 
         if (!isOpen) {
 
