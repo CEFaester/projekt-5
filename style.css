@@ -456,7 +456,7 @@ h3 { font-size: 1.2rem; }
 @keyframes scroll-carousel {
     0% { transform: translateX(0); }
     /* Formel: -50% flytter sporet præcis halvdelen af dets længde. 
-       Vi trækker yderligere 10px fra (hvilket er præcis halvdelen af dit 'gap: 20px'), 
+       Derefter bliver der trukket yderligere 10px fra (hvilket er præcis halvdelen af vores 'gap: 20px'), 
        for at sy slutningen og starten af dit loop 100% usynligt sammen! */
     100% { transform: translateX(calc(-50% - 10px)); } 
 }
@@ -495,10 +495,8 @@ h3 { font-size: 1.2rem; }
 .services-nav__image {
     width: 100%;
     
-    /* Gør billedet 30% højere end kassen (giver 15% i top og bund) */
     height: 130%; 
     
-    /* Trækker de første 15% op, så billedet sidder helt centreret i kassen som standard */
     top: -15%;    
     
     object-fit: cover;
@@ -614,7 +612,6 @@ h3 { font-size: 1.2rem; }
     will-change: transform;
 }
 
-/* Den ydre kasse styrer stadig bare placeringen over billedet */
 .accordion-title {
     position: absolute;
     bottom: 10px;
@@ -625,21 +622,18 @@ h3 { font-size: 1.2rem; }
     text-align: left;
 }
 
-/* Vi flytter vores marker-highlight magi direkte over på tekst-span'en */
 .accordion-title-text {
     font-size: 1.5rem; 
     
     background-color: rgb(from var(--color-text-main) r g b / 60%);
     color: var(--color-bg-light);
     
-    /* Gør at baggrunden smyger sig stramt om teksten pr. linje */
     display: inline; 
     
     padding: 5px 15px; 
     border-radius: 10px;
     line-height: 1.6; 
     
-    /* Sørger for afrundede hjørner på begge linjer, hvis titlen knækker */
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
@@ -654,6 +648,19 @@ h3 { font-size: 1.2rem; }
 .accordion-content-inner {
     padding: 1rem;
     color: var(--color-bg-light);
+}
+
+.accordion-arrow {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 20px;
+    transition: transform 0.2s ease;
+}
+
+
+.accordion-title:hover .accordion-arrow {
+    transform: translateY(3px);
 }
 
 /* =========================================
@@ -1273,6 +1280,6 @@ h3 { font-size: 1.2rem; }
     .carousel__button--next { right: 15px; }
 
     .accordion-header {
-    height: 10vh;
+    height: 15vh;
     }
 }
