@@ -4,19 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Vi gemmer behandlingerne i et objekt opdelt i 'yes' (Første gang) og 'no' (Ikke første gang)
     const treatmentsData = {
         yes: [
-            { id: 1, title: 'Førstegangs Konsultation', time: '45 min', price: '600 kr.' },
-            { id: 2, title: 'Udvidet Rygundersøgelse', time: '60 min', price: '800 kr.' }
+            { id: 1, title: 'Kort første konsultation', time: '45 min', price: '500 kr.' },
+            { id: 2, title: 'Standard første konsultation', time: '60 min', price: '650 kr.' },
+            { id: 3, title: 'Lang første konsultation', time: '90 min', price: '850 kr.' },
+            { id: 4, title: 'Ekstra lang første konsultation', time: '120 min', price: '1100 kr.' }
         ],
         no: [
-            { id: 3, title: 'Normal Behandling', time: '30 min', price: '400 kr.' },
-            { id: 4, title: 'Massage', time: '30 min', price: '350 kr.' },
-            { id: 5, title: 'Akkupunktur', time: '45 min', price: '500 kr.' }
+            { id: 5, title: 'Lyn behandling', time: '15 min', price: '225 kr.' },
+            { id: 6, title: 'Ekstra kort behandling', time: '30 min', price: '400 kr.' },
+            { id: 7, title: 'Kort behandling', time: '45 min', price: '500 kr.' },
+            { id: 8, title: 'Standard behandling (Anbefalet)', time: '60 min', price: '650 kr.' },
+            { id: 9, title: 'Lang behandling', time: '90 min', price: '850 kr.' },
+            { id: 10, title: 'Ekstra lang behandling', time: '120 min', price: '1100 kr.' }
         ]
     };
 
     /* --- 2. VARIABLER TIL AT STYRE FLOWET --- */
     let currentStep = 1;      // Vi starter på step 1
-    const totalSteps = 5;     // Der er 5 steps i alt
+    const totalSteps = 10;     // Der er 10 steps i alt
     let skipStep4 = false;    // Denne holder styr på, om vi har logget ind og skal hoppe over step 4
 
     /* --- 3. HENT HTML ELEMENTER --- */
