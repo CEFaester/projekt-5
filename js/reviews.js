@@ -1,3 +1,5 @@
+/* Denne kode er genereret med hjælp fra ChatGPT, tjek /aiprompts/mads-aiprompts.pdf */ 
+
 (function () {
 
   const carousel = document.querySelector("#carousel");
