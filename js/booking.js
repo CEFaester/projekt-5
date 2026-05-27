@@ -1,3 +1,7 @@
+/* --- Carl Emils JS kode.
+        Koden er genereret med hjælp fra Gemini. Se AI prompts Carl Emil for at se specifikke instruktioner givet til Gemini.
+        Jeg har slev ændre lidt i den og gået den iggenem for at forstå hvorda nden virker. --- */
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. DATA: VORES BEHANDLINGER --- */
@@ -21,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 2. VARIABLER TIL AT STYRE FLOWET --- */
     let currentStep = 1;      // Vi starter på step 1
-    const totalSteps = 10;     // Der er 10 steps i alt
+    const totalSteps = 5;     // Der er 5 steps i alt
     let skipStep4 = false;    // Denne holder styr på, om vi har logget ind og skal hoppe over step 4
 
     /* --- 3. HENT HTML ELEMENTER --- */
