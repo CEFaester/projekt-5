@@ -492,7 +492,7 @@ h3 { font-size: 1.2rem; }
 .services-nav__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(14, 16, 24, 0.4);
+    background: rgb(from var(--color-text-main) r g b / 40%);
     border-radius: 10px;
     z-index: 1; 
 }
