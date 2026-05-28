@@ -1,4 +1,4 @@
-/* Denne kode er genereret med hjælp fra Gemini, tjek /aiprompts/justine-aiprompts.pdf */ 
+/* Denne kode er genereret med hjælp fra Gemini, tjek /Ai-Prompts/justine_aiprompts.pdf */ 
 document.addEventListener('DOMContentLoaded', function() {
     
     const burgerBtn = document.querySelector('.header__burger');

@@ -1,4 +1,5 @@
-// Kode er genereret med Gemini AI og omskrevet, rettet og tilføjet til efterfølgende for at følge vores mockups bedre
+// Kode er genereret med Gemini AI og omskrevet, rettet og tilføjet til efterfølgende for at følge vores mockups bedre.
+// Se /Ai-Prompts/carlemil_aiprompts.pdf for at se specifikke instruktioner givet til Gemini.
 
 // Vi venter én gang på, at hele HTML'en er indlæst
 document.addEventListener('DOMContentLoaded', () => {

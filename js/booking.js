@@ -1,6 +1,6 @@
 /* --- Carl Emils JS kode.
-        Koden er genereret med hjælp fra Gemini. Se /aiprompts/carlemil-aiprompts.pdf for at se specifikke instruktioner givet til Gemini.
-        Jeg har slev ændre lidt i den og gået den iggenem for at forstå hvorda nden virker. --- */
+        Koden er genereret med hjælp fra Gemini. Se /Ai-Prompts/carlemil_aiprompts.pdf for at se specifikke instruktioner givet til Gemini.
+        Jeg har selv ændret lidt i den og gået den igennem for at forstå hvordan den virker. --- */
 
 document.addEventListener('DOMContentLoaded', () => {
 

@@ -1,4 +1,4 @@
-/* Denne kode er genereret med hjælp fra ChatGPT, tjek /aiprompts/mads-aiprompts.pdf */ 
+/* Denne kode er genereret med hjælp fra ChatGPT, tjek /Ai-Prompts/Mads_AiPrompts_Karousel.pdf */ 
 
 (function () {
 
